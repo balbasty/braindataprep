@@ -20,7 +20,7 @@ pip install "braindataprep[all] @ git+https://github.com/balbasty/braindataprep"
 
 # Usage
 
-```shell
+```
 --------------------------------------------------------------------------------
 Usage: python -m braindataprep.datasets.IXI.download [OPTIONS]
 
