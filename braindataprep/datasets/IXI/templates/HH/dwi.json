@@ -1,0 +1,8 @@
+{
+  "Manufacturer": "Philips",
+  "MagneticFieldStrength": 3,
+  "PulseSequenceType": "Spin Echo EPI",
+  "EchoTime":  51.0E-3,
+  "RepetitionTimeExcitation": 11894.4384765625E-3,
+  "FlipAngle": 90
+}

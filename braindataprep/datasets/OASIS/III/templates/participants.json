@@ -1,0 +1,73 @@
+{
+  "sex": {
+    "Description": "Sex of the participant as reported by the participant",
+    "Levels": {
+      "M": "male",
+      "F": "female"
+    }
+  },
+  "handedness": {
+    "Description": "Handedness of the participant",
+    "Levels": {
+      "L": "left",
+      "R": "right"
+    }
+  },
+  "age_at_entry": {
+    "Description": "Age of the participant at time of *first* visit",
+    "Units": "years"
+  },
+  "age_at_death": {
+    "Description": "Age of the participant at time of death",
+    "Units": "years"
+  },
+  "educ": {
+    "Description": "Years of education",
+    "Units": "years"
+  },
+  "ses": {
+    "Description": "Socioeconomic status, assessed by the Hollingshead Index of Social Position and classified into categories from 1 (highest status) to 5 (lowest status) (Hollingshead, 1957).",
+    "Levels": {
+      "1": "highest socioeconomic status.",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "lowest socioeconomic status"
+    }
+  },
+  "race": {
+    "Description": "Race.",
+    "Levels": {
+      "A": "Asian",
+      "B": "Black",
+      "W": "White"
+    }
+  },
+  "race_mom": {
+    "Description": "Race of the mother.",
+    "Levels": {
+      "A": "Asian",
+      "B": "Black",
+      "W": "White"
+    }
+  },
+  "race_dad": {
+    "Description": "Race of the father.",
+    "Levels": {
+      "A": "Asian",
+      "B": "Black",
+      "W": "White"
+    }
+  },
+  "apoe": {
+    "Description": "APOE genetic status.",
+    "Levels": {
+      "22": "(APOE2, APOE2)",
+      "23": "(APOE2, APOE3)",
+      "24": "(APOE2, APOE4)",
+      "33": "(APOE3, APOE3)",
+      "34": "(APOE3, APOE4)",
+      "44": "(APOE4, APOE4)"
+    }
+  }
+}

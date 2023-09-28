@@ -1,0 +1,80 @@
+{
+  "site": {
+      "Description": "study site",
+      "Levels": {
+          "Guys": "Guy's Hospital, Great Maze Pond, London SE1 9RT, UK",
+          "HH": "Hammersmith Hospital, 72 Du Cane Rd, London W12 0HS, UK",
+          "IOP": "Institute of Psychiatry, Denmark Hill, London SE5 8AB, UK"
+      }
+  },
+  "age": {
+      "Description": "age of the participant",
+      "Units": "years"
+  },
+  "sex": {
+      "Description": "sex of the participant as reported by the participant",
+      "Levels": {
+          "M": "male",
+          "F": "female"
+      }
+  },
+  "height": {
+      "Description": "height of the participant",
+      "Units": "meters"
+  },
+  "weight": {
+      "Description": "weight of the participant",
+      "Units": "kilograms"
+  },
+  "dob": {
+      "Description": "date of birth of the participant",
+      "Units": "yyyy-mm-dd"
+  },
+  "ethnicity": {
+      "Description": "ethnicity of the participant",
+      "Levels": {
+          "W": "white",
+          "B": "black or black british",
+          "A": "asian or asian british",
+          "C": "chinese",
+          "O": "other"
+      }
+  },
+  "marital_status": {
+      "Description": "marital status of the participant",
+      "Levels": {
+          "S": "single",
+          "M": "married",
+          "C": "cohabiting",
+          "D": "divorced/separated",
+          "W": "widowed"
+      }
+  },
+  "occupation": {
+      "Description": "occupation of the participant",
+      "Levels": {
+          "FT": "go out to full time employment",
+          "PT": "go out to part time employment (<25hrs)",
+          "S": "study at college or university",
+          "H": "full-time housework",
+          "R": "retired",
+          "U": "unemployed",
+          "WFH": "work for pay at home",
+          "O": "other"
+      }
+  },
+  "qualification": {
+      "Description": "qualification of the participant",
+      "Levels": {
+          "N": "No qualifications",
+          "O": "O-levels, GCSEs, or CSEs",
+          "A": "A-levels",
+          "F": "Further education e.g. City & Guilds / NVQs",
+          "U": "University or Polytechnic degree"
+      }
+  },
+  "study_date": {
+      "Description": "date the study was performed",
+      "Units": "yyyy-mm-dd"
+  }
+}

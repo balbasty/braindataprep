@@ -1,0 +1,20 @@
+{
+  "sex": {
+    "Description": "Sex of the participant as reported by the participant",
+    "Levels": {
+      "M": "male",
+      "F": "female"
+    }
+  },
+  "handedness": {
+    "Description": "Handedness of the participant",
+    "Levels": {
+      "L": "left",
+      "R": "right"
+    }
+  },
+  "age": {
+    "Description": "Age of the participant at time of *first* visit",
+    "Units": "years"
+  }
+}

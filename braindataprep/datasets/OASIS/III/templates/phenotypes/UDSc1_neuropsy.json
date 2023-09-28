@@ -1,0 +1,267 @@
+{
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant",
+    "Units": "years"
+  },
+  "MMSELOC": {
+    "Description": "MMSE location. The administration of the MMSE was:",
+    "Levels": {
+      "1": "In ADC or Clinic",
+      "2": "In Home",
+      "3": "In-person - other"
+    }
+  },
+  "MMSELAN": {
+    "Description": "Language of MMSE administration",
+    "Levels": {
+      "1": "English",
+      "2": "Spanish",
+      "3": "Other"
+    }
+  },
+  "MMELANX": {
+    "Description": "Language of MMSE, other - specify (Blank if MMSELAN ≠ 3)"
+  },
+  "MMSEORDA": {
+    "Description": "MMSE orientation subscale score, time",
+    "Levels": {
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MMSEORLO": {
+    "Description": "MMSE orientation subscale score, place",
+    "Levels": {
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "PENTAGON": {
+    "Description": "Intersecting pentagon subscale score",
+    "Levels": {
+      "0": "",
+      "1": "",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MMSE":{
+    "Description": "Total MMSE score (using D-L-R-O-W) {0..30}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "NPSYCLOC": {
+    "Description": "The remainder of the battery was administered:",
+    "Levels": {
+      "1": "In ADC or Clinic",
+      "2": "In Home",
+      "3": "In-person - other"
+    }
+  },
+  "NPSYLAN": {
+    "Description": "Language of test (neuropsychological battery administration",
+    "Levels": {
+      "1": "English",
+      "2": "Spanish",
+      "3": "Other"
+    }
+  },
+  "NPSYLANX": {
+    "Description": "Language of test (neuropsychological battery), other - specify (Blank if NPSYLAN ≠ 3)"
+  },
+  "LOGIMO": {
+    "Description": "If this test has been administered to the subject within the past 3 months, specify the date previously administered: (month)",
+    "Levels": {
+        "1": "January",
+        "2": "February",
+        "3": "March",
+        "4": "April",
+        "5": "May",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+        "9": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December",
+        "88": "N/A"
+      }
+  },
+  "LOGIDAY": {
+    "Description": "If this test has been administered to the subject within the past 3 months, specify the date previously administered: (day) {1..31}",
+    "Units": "days"
+  },
+  "LOGIYR": {
+    "Description": "If this test has been administered to the subject within the past 3 months, specify the date previously administered: (year)",
+    "Units": "years"
+  },
+  "LOGIPREV": {
+    "Description": "Total score from the previous test administration {0..25}",
+    "Levels": {
+        "88": "N/A"
+    }
+  },
+  "LOGIMEM": {
+    "Description": "Total number of story units recalled from this current test administration:{0..25}",
+    "Levels": {
+        "95": "Physical problem",
+        "96": "Cognitive/behavior problem",
+        "97": "Other problem",
+        "98": "Verbal refusal"
+      }
+  },
+  "DIGF": {
+    "Description": "Digit span forward trials correct - Total number of trials correct prior to two consecutive errors at the same digit length {0..12}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "DIGFLEN": {
+    "Description": "Digit span forward length {0..8}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "DIGB": {
+    "Description": "Digit span backward trials correct - Total number of trials correct prior to two consecutive errors at the same digit length {0..12}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "DIGBLEN": {
+    "Description": "Digit span backward length {0..7}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "ANIMALS": {
+    "Description": "Category Fluency - Animals: Total number of animals named in 60 seconds {0..77}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "VEG": {
+    "Description": "Category Fluency - Vegetables: Total number of vegetables named in 60 seconds {0..77}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "TRAILA": {
+    "Description": "Trail Making Test - Part A: Total number of seconds to complete {0..150}",
+    "Levels": {
+      "995": "Physical problem",
+      "996": "Cognitive/behavior problem",
+      "997": "Other problem",
+      "998": "Verbal refusal"
+    }
+  },
+  "TRAILARR": {
+    "Description": "Trail Making Test - Part A: Number of commission errors {0..40} (Blank if TRAILA in {995..998})"
+  },
+  "TRAILALI": {
+    "Description": "Trail Making Test - Part A: Number of correct lines {0..24} (Blank if TRAILA in {995..998})"
+  },
+  "TRAILB": {
+    "Description": "Trail Making Test - Part B: Total number of seconds to complete {0..300}",
+    "Levels": {
+      "995": "Physical problem",
+      "996": "Cognitive/behavior problem",
+      "997": "Other problem",
+      "998": "Verbal refusal"
+    }
+  },
+  "TRAILBRR": {
+    "Description": "Trail Making Test - Part B: Number of commission errors {0..40} (Blank if TRAILB in {995..998})"
+  },
+  "TRAILBLI": {
+    "Description": "Trail Making Test - Part B: Number of correct lines {0..24} (Blank if TRAILB in {995..998})"
+  },
+  "WAIS": {
+    "Description": "WAIS-R Digit Symbol -  Total number of items correctly completed in 90 seconds {0..93}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MEMUNIT": {
+    "Description": "Logical Memory IIA - Delayed: Total number of story units recalled {0..25}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MEMTIME": {
+    "Description": "Logical Memory IIA - Delayed: Time elapsed since Logical Memory IA - Immediate (minutes) {0..85}",
+    "Levels": {
+      "88": "N/A",
+      "99": "Unknown"
+    }
+  },
+  "BOSTON": {
+    "Description": "Boston Naming Test - (30 Odd-numbered items) total score {0..30}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "COGSTAT": {
+    "Description": "Overall appraisal: Per the clinician (e.g., neuropsychologist, behavioral neurologist, or other suitably qualified clinician), based on the UDS neuropsychological examination, the subjects cognitive status is deemed",
+    "Levels": {
+      "1": "Better than normal for age",
+      "2": "Normal for age",
+      "3": "One or two test scores abnormal",
+      "4": "Three or more scores are abnormal or lower than expected",
+      "0": "Clinican unable to render opinion"
+    }
+  }
+}

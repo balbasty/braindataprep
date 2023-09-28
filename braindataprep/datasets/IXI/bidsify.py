@@ -3,13 +3,25 @@ import sys
 import click
 import tarfile
 import logging
-import csv
-import json
 import nibabel
 import glob
-import shutil
 import numpy as np
-from braindataprep.utils import fileparts
+from braindataprep.utils import (
+    get_tree_path,
+    fileparts,
+    copy_from_buffer,
+    copy_json,
+    write_tsv,
+)
+
+
+try:
+    import xlrd
+except ImportError:
+    logging.error(
+        'Cannot find `xlrd`. Did you install with [ixi] flag? '
+        'Try `pip install braindataprep[ixi]`.'
+    )
 
 """
 Expected input
@@ -49,286 +61,22 @@ IXI/
               sub-{03d}_dwi.json
 """
 
-readme = """
-# IXI Dataset
+"""Folder containing template README/JSON/..."""
+TPLDIR = os.path.join(os.path.dirname(__file__), 'templates')
 
-## Demographics
-
-```
-+================+====================================================================+
-| site           | The data has been collected at three different hospitals in London |
-+================+====================================================================+
-| Guys           | Guy's Hospital, Great Maze Pond, London SE1 9RT, UK                |
-+----------------+--------------------------------------------------------------------+
-| HH             | Hammersmith Hospital, 72 Du Cane Rd, London W12 0HS, UK            |
-+----------------+--------------------------------------------------------------------+
-| IOP            | Institute of Psychiatry, Denmark Hill, London SE5 8AB, UK          |
-+================+====================================================================+
-| sex            | Sex of the participant as reported by the participant              |
-+================+====================================================================+
-| M              | male                                                               |
-+----------------+--------------------------------------------------------------------+
-| F              | female                                                             |
-+================+====================================================================+
-| ethnicity      | Ethnicity of the participant as reported by the participant        |
-+================+====================================================================+
-| W              | white                                                              |
-+----------------+--------------------------------------------------------------------+
-| B              | black or black british                                             |
-+----------------+--------------------------------------------------------------------+
-| A              | asian or asian british                                             |
-+----------------+--------------------------------------------------------------------+
-| C              | chinese                                                            |
-+----------------+--------------------------------------------------------------------+
-| O              | other                                                              |
-+================+====================================================================+
-| marital_status | Marital status of the participant                                  |
-+================+====================================================================+
-| S              | single                                                             |
-+----------------+--------------------------------------------------------------------+
-| M              | married                                                            |
-+----------------+--------------------------------------------------------------------+
-| C              | cohabiting                                                         |
-+----------------+--------------------------------------------------------------------+
-| D              | divorced/separated                                                 |
-+----------------+--------------------------------------------------------------------+
-| W              | widowed                                                            |
-+================+====================================================================+
-| occupation     | Occupation of the participant as reported by the participant       |
-+================+====================================================================+
-| FT             | go out to full time employment                                     |
-+----------------+--------------------------------------------------------------------+
-| PT             | go out to part time employment (<25hrs)                            |
-+----------------+--------------------------------------------------------------------+
-| S              | study at college or university                                     |
-+----------------+--------------------------------------------------------------------+
-| H              | full-time housework                                                |
-+----------------+--------------------------------------------------------------------+
-| R              | retired                                                            |
-+----------------+--------------------------------------------------------------------+
-| U              | unemployed                                                         |
-+----------------+--------------------------------------------------------------------+
-| WFH            | work for pay at home                                               |
-+----------------+--------------------------------------------------------------------+
-| O              | other                                                              |
-+================+====================================================================+
-| qualification  | Qualification of the participant as reported by the participant    |
-+================+====================================================================+
-| N              | No qualifications                                                  |
-+----------------+--------------------------------------------------------------------+
-| O              | O-levels, GCSEs, or CSEs                                           |
-+----------------+--------------------------------------------------------------------+
-| A              | A-levels                                                           |
-+----------------+--------------------------------------------------------------------+
-| F              | Further education e.g. City & Guilds / NVQs                        |
-+----------------+--------------------------------------------------------------------+
-| U              | University or Polytechnic degree                                   |
-+----------------+--------------------------------------------------------------------+
-```
-
-## Notes from the IXI website
-
-In this project we have collected nearly 600 MR images from normal,
-healthy subjects. The MR image acquisition protocol for each subject includes:
-
-- T1, T2 and PD-weighted images
-- MRA images
-- Diffusion-weighted images (15 directions)
-
-The data has been collected at three different hospitals in London:
-
-- Hammersmith Hospital using a Philips 3T system
-  ([details of scanner parameters](http://brain-development.org/scanner-philips-medical-systems-intera-3t/))
-- Guy's Hospital using a Philips 1.5T system
-  ([details of scanner parameters](http://brain-development.org/scanner-philips-medical-systems-gyroscan-intera-1-5t/))
-- Institute of Psychiatry using a GE 1.5T system (details of the scan parameters not available at the moment)
-
-The data has been collected as part of the project:
-
-**IXI - Information eXtraction from Images (EPSRC GR/S21533/02)**
-
-The images in NIFTI format can be downloaded from here:
-
-- T1 images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-T1.tar))
-- T2 images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-T2.tar))
-- PD images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-PD.tar))
-- MRA images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-MRA.tar))
-- DTI images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-DTI.tar),
-  [bvecs.txt](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/bvecs.txt),
-  [bvals.txt](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/bvals.txt))
-- Demographic information ([spreadsheet](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI.xls))
-
-This data is made available under the Creative Commons
-[CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
-If you use the IXI data please acknowledge the source of the IXI data,
-e.g. this website.
-
-"""  # noqa: E501
-
-"""
-JSONs
-"""
-dataset_description_json = {
-    'Name': 'IXI',
-    'BIDSVersion': '1.8.0',
-    'LICENSE': 'CC BY-SA 3.0',
-    'Acknowledgements': 'http://brain-development.org/ixi-dataset/',
-}
-
-participants_json = {
-    "site": {
-        "Description": "study site",
-        "Levels": {
-            "Guys": "Guy's Hospital, Great Maze Pond, London SE1 9RT, UK",
-            "HH": "Hammersmith Hospital, 72 Du Cane Rd, London W12 0HS, UK",
-            "IOP": "Institute of Psychiatry, Denmark Hill, London SE5 8AB, UK",
-        }
-    },
-    "age": {
-        "Description": "age of the participant",
-        "Units": "years"
-    },
-    "sex": {
-        "Description": "sex of the participant as reported by the participant",
-        "Levels": {
-            "M": "male",
-            "F": "female"
-        }
-    },
-    "height": {
-        "Description": "height of the participant",
-        "Units": "meters"
-    },
-    "weight": {
-        "Description": "weight of the participant",
-        "Units": "kilograms"
-    },
-    "dob": {
-        "Description": "date of birth of the participant",
-        "Units": "yyyy-mm-dd"
-    },
-    "ethnicity": {
-        "Description": "ethnicity of the participant",
-        "Levels": {
-            "W": "white",
-            "B": "black or black british",
-            "A": "asian or asian british",
-            "C": "chinese",
-            "O": "other"
-        }
-    },
-    "marital_status": {
-        "Description": "marital status of the participant",
-        "Levels": {
-            "S": "single",
-            "M": "married",
-            "C": "cohabiting",
-            "D": "divorced/separated",
-            "W": "widowed"
-        }
-    },
-    "occupation": {
-        "Description": "occupation of the participant",
-        "Levels": {
-            "FT": "go out to full time employment",
-            "PT": "go out to part time employment (<25hrs)",
-            "S": "study at college or university",
-            "H": "full-time housework",
-            "R": "retired",
-            "U": "unemployed",
-            "WFH": "work for pay at home",
-            "O": "other"
-        }
-    },
-    "qualification": {
-        "Description": "qualification of the participant",
-        "Levels": {
-            "N": "No qualifications",
-            "O": "O-levels, GCSEs, or CSEs",
-            "A": "A-levels",
-            "F": "Further education e.g. City & Guilds / NVQs",
-            "U": "University or Polytechnic degree"
-        }
-    },
-    "study_date": {
-        "Description": "date the study was performed",
-        "Units": "yyyy-mm-dd"
-    },
-}
-
-
-def scans_json(site):
-    return {
-        'Manufacturer': 'GE' if site == 'IOP' else 'Philips',
-        'MagneticFieldStrength': 3 if site == 'HH' else 1.5,
-    }
-
-
-modality_json = {
-    'T1': lambda site: {
-            'PulseSequenceType': 'Gradient Echo',
-            'EchoTime': (
-                4.60269975662231E-3 if site == 'HH' else
-                4.603E-3 if site == 'Guys' else
-                None),
-            'RepetitionTimeExcitation': (
-                9.60000038146972E-3 if site == 'HH' else
-                9.813E-3 if site == 'Guys' else
-                None),
-            'FlipAngle': 8 if site in ('HH', 'Guys') else None,
-        },
-    'T2': lambda site: {
-            'PulseSequenceType': 'Fast Spin Echo',
-            'EchoTime': 8E-3 if site in ('HH', 'Guys') else None,
-            'RepetitionTimeExcitation': (
-                5725.79052734375E-3 if site == 'HH' else
-                8178.34E-3 if site == 'Guys' else
-                None),
-            'FlipAngle': 90 if site in ('HH', 'Guys') else None,
-        },
-    'PD': lambda site: {
-            'PulseSequenceType': 'Fast Spin Echo',
-            'EchoTime': 100E-3 if site in ('HH', 'Guys') else None,
-            'RepetitionTimeExcitation': (
-                5725.79052734375E-3 if site == 'HH' else
-                8178.34E-3 if site == 'Guys' else
-                None),
-            'FlipAngle': 90 if site in ('HH', 'Guys') else None,
-        },
-    'MRA': lambda site: {
-            'EchoTime': (
-                5.75335741043090E-3 if site == 'HH' else
-                6.9052E-3 if site == 'Guys' else
-                None),
-            'RepetitionTimeExcitation': (
-                16.7210998535156E-3 if site == 'HH' else
-                20E-3 if site == 'Guys' else
-                None),
-            'FlipAngle': (
-                16 if site == 'HH' else
-                25 if site == 'Guys' else
-                None),
-        },
-    'DTI': lambda site: {
-            'PulseSequenceType': 'Spin Echo EPI',
-            'EchoTime': (
-                51.0E-3 if site == 'HH' else
-                80E-3 if site == 'Guys' else
-                None),
-            'RepetitionTimeExcitation': (
-                11894.4384765625E-3 if site == 'HH' else
-                9054.01E-3 if site == 'Guys' else
-                None),
-            'FlipAngle': 90 if site in ('HH', 'Guys') else None,
-        },
-}
-
-modality_ixi_to_bids = {
+modality_ixi2bids = {
     'T1': 'T1w',
     'T2': 'T2w',
     'PD': 'PDw',
     'MRA': 'angio',
     'DTI': 'dwi',
+}
+modality_bids2ixi = {
+    'T1w': 'T1',
+    'T2w': 'T2',
+    'PDw': 'PD',
+    'angio': 'MRA',
+    'dwi': 'DTI',
 }
 
 
@@ -338,175 +86,179 @@ modality_ixi_to_bids = {
     help='Path to tree')
 @click.option(
     '--key', multiple=True,
-    type=click.Choice(["meta", "json", "T1", "T2", "PD", "MRA", "DTI"]),
+    type=click.Choice(["meta", "json", "T1w", "T2w", "PDw", "angio", "dwi"]),
     help='Only bidsify these keys')
+@click.option(
+    '--sub', multiple=True, type=int,
+    help='Only download these subjects')
 @click.option(
     '--json-only', is_flag=True, default=False,
     help='Only write jsons (not volumes)'
 )
-def bidsify(path, key, json_only):
+def bidsify(path, key, sub, json_only):
     logging.info('IXI - bidsify')
-    keys = set(key or ['meta', 'json', 'T1', 'T2', 'PD', 'MRA', 'DTI'])
-    path = path or '/autofs/space/pade_004/users/yb947/data4'
+    path = get_tree_path(path)
+    keys = set(key or ['meta', 'json', 'T1w', 'T2w', 'PDw', 'angio', 'dwi'])
+    subs = sub
     ixipath = os.path.join(path, 'IXI')
     src = os.path.join(ixipath, 'sourcedata')
     raw = os.path.join(ixipath, 'rawdata')
-    os.makedirs(raw, exist_ok=True)
 
     if 'meta' in keys:
         # The mapping from subject to site is only available through
         # individual filenames. We therefore need to first parse one of
         # the tar to build this mapping.
-        if os.path.join(src, 'IXI-T1.tar'):
-            sites = get_sites(os.path.join(src, 'IXI-T1.tar'))
-        elif os.path.join(src, 'IXI-PD.tar'):
-            sites = get_sites(os.path.join(src, 'IXI-PD.tar'))
-        elif os.path.join(src, 'IXI-T2.tar'):
-            sites = get_sites(os.path.join(src, 'IXI-T2.tar'))
-        elif os.path.join(src, 'IXI-MRA.tar'):
-            sites = get_sites(os.path.join(src, 'IXI-MRA.tar'))
-        elif os.path.join(src, 'IXI-DTI.tar'):
-            sites = get_sites(os.path.join(src, 'IXI-DTI.tar'))
-        else:
+        sites = None
+        for key in ['T1', 'T2', 'PD', 'MRA', 'DTI']:
+            tarpath = os.path.join(src, f'IXI-{key}.tar')
+            if os.path.exists(tarpath):
+                sites = get_sites(tarpath)
+                break
+        if sites is None:
             logging.error("No tar file available. Cannot compute sites.")
 
-        logging.info('write README')
-        with open(os.path.join(ixipath, 'README'), 'wt') as f:
-            f.write(readme)
+        copy_from_buffer(
+            os.path.join(TPLDIR, 'README'),
+            os.path.join(ixipath, 'README'),
+        )
 
-        logging.info('write dataset_description')
-        jpath = os.path.join(ixipath, 'dataset_description.json')
-        with open(jpath, 'wt') as f:
-            json.dump(dataset_description_json, f, indent=2)
+        copy_json(
+            os.path.join(TPLDIR, 'dataset_description.json'),
+            os.path.join(ixipath, 'dataset_description.json')
+        )
 
-        logging.info('write participants')
+        copy_json(
+            os.path.join(TPLDIR, 'participants.json'),
+            os.path.join(ixipath, 'participants.json')
+        )
+
         make_participants(
             os.path.join(src, 'IXI.xls'),
             os.path.join(ixipath, 'participants.tsv'),
-            os.path.join(ixipath, 'participants.json'),
             sites,
         )
 
     # T1/T2/PD/MRA are simple "anat" scans that can be processed
     # identically.
-    for key in keys.intersection(set(['T1', 'T2', 'PD', 'MRA'])):
+    for key in keys.intersection(set(['T1w', 'T2w', 'PDw', 'angio'])):
         # check that the archive is available
-        logging.info(f'process {key}')
-        tarpath = os.path.join(src, f'IXI-{key}.tar')
+        tarpath = os.path.join(src, f'IXI-{modality_bids2ixi[key]}.tar')
         if not os.path.exists(tarpath):
-            logging.warning(f'IXI-{key}.tar not found')
+            logging.warning(f'IXI-{modality_bids2ixi[key]}.tar not found')
             continue
         # parse the archive
-        modality = modality_ixi_to_bids[key]
         with tarfile.open(tarpath) as f:
             for member in f.getmembers():
-                ixi_id, site, *_ = member.name.split('-')
-                ixi_id = int(ixi_id[3:])
-                subdir = os.path.join(raw, f'sub-{ixi_id:03d}', 'anat')
-                os.makedirs(subdir, exist_ok=True)
-                scanname = f'sub-{ixi_id:03d}_{modality}.nii.gz'
-                jsonname = f'sub-{ixi_id:03d}_{modality}.json'
-                if not json_only:
-                    logging.info(f'write {scanname}')
-                    with open(os.path.join(subdir, scanname), 'wb') as fo:
-                        fo.write(f.extractfile(member).read())
+                id, site, *_ = member.name.split('-')
+                id = int(id[3:])
+                if subs and id not in subs:
+                    continue
+                dst = os.path.join(raw, f'sub-{id:03d}', 'anat')
                 if 'json' in keys:
-                    with open(os.path.join(subdir, jsonname), 'wt') as fo:
-                        json.dump({
-                            **scans_json(site),
-                            **(modality_json[key](site))
-                        }, fo, indent=2)
+                    copy_json(
+                        os.path.join(TPLDIR, site, f'{key}.json'),
+                        os.path.join(dst, f'sub-{id:03d}_{key}.json'),
+                    )
+                if not json_only:
+                    copy_from_buffer(
+                        f.extractfile(member),
+                        os.path.join(dst, f'sub-{id:03d}_{key}.nii.gz'),
+                    )
 
     # DWI scans are stored as individual 3D niftis (one per bval/bvec)
     # whereas BIDS prefers 4D niftis (actually 5D, since nifti specifies
     # that the 4th dimension is reserved for time)
     # We also need to deal with the bvals/bvecs files.
-    if 'DTI' in keys:
-        logging.info('process DTI')
+    if 'dwi' in keys:
         tarpath = os.path.join(src, 'IXI-DTI.tar')
         if not os.path.exists(tarpath):
             logging.warning('IXI-DTI.tar not found')
-        else:
-            # First, copy bvals/bvecs.
-            # They are common to all subjects so we place them at the
-            # top of the tree (under "rawdata/")
-            if not os.path.exists(os.path.join(src, 'bvals.txt')):
-                logging.error('bvals not found')
-                return
-            if not os.path.exists(os.path.join(src, 'bvecs.txt')):
-                logging.error('bvecs not found')
-                return
-            shutil.copy(os.path.join(src, 'bvals.txt'),
-                        os.path.join(raw, 'dwi.bval'))
-            shutil.copy(os.path.join(src, 'bvecs.txt'),
-                        os.path.join(raw, 'dwi.bvec'))
-            # Then extract individual 3D volumes and save them with
-            # temporary names (we use the non-BIDS-compliant "ch-{index}" tag)
-            with tarfile.open(tarpath) as f:
-                ixi_ids = {}
-                for member in f.getmembers():
-                    _, basename, _ = fileparts(member.name)
-                    ixi_id, site, *_, dti_id = basename.split('-')
-                    ixi_id = int(ixi_id[3:])
-                    ixi_ids[ixi_id] = site
-                    dti_id = int(dti_id)
-                    subdir = os.path.join(raw, f'sub-{ixi_id:03d}', 'dwi')
-                    os.makedirs(subdir, exist_ok=True)
-                    scanname = f'sub-{ixi_id:03d}_ch-{dti_id:02d}_dwi.nii.gz'
-                    if not json_only:
-                        logging.info(f'write {scanname}')
-                        with open(os.path.join(subdir, scanname), 'wb') as fo:
-                            fo.write(f.extractfile(member).read())
-            # Finally, go through each subject and combine the 3D b-series
-            # into 5D niftis
-            for ixi_id, site in ixi_ids.items():
-                # if we only write JSON, do it separately
-                if json_only:
-                    jpath = os.path.join(subdir, f'sub-{ixi_id:03d}_dwi.json')
-                    with open(jpath, 'wt') as fo:
-                        json.dump({
-                            **scans_json(site),
-                            **(modality_json['DTI'](site))
-                        }, fo, indent=2)
+            return
+
+        # First, copy bvals/bvecs.
+        # They are common to all subjects so we place them at the
+        # top of the tree (under "rawdata/")
+        if not os.path.exists(os.path.join(src, 'bvals.txt')):
+            logging.error('bvals not found')
+            return
+        if not os.path.exists(os.path.join(src, 'bvecs.txt')):
+            logging.error('bvecs not found')
+            return
+        copy_from_buffer(
+            os.path.join(src, 'bvals.txt'),
+            os.path.join(raw, 'dwi.bval')
+        )
+        copy_from_buffer(
+            os.path.join(src, 'bvecs.txt'),
+            os.path.join(raw, 'dwi.bvec')
+        )
+        # Then extract individual 3D volumes and save them with
+        # temporary names (we use the non-BIDS-compliant
+        # "ch-{index}" tag)
+        with tarfile.open(tarpath) as f:
+            ids = {}
+            for member in f.getmembers():
+                _, basename, _ = fileparts(member.name)
+                id, site, *_, dti_id = basename.split('-')
+                id = int(id[3:])
+                if subs and id not in subs:
                     continue
-                # now, concatenate volumes
-                logging.info(f'concatenate sub-{ixi_id:03d}_dwi.nii.gz')
-                subdir = os.path.join(raw, f'sub-{ixi_id:03d}', 'dwi')
-                fnames = list(sorted(glob.glob(
-                    os.path.join(subdir, f'sub-{ixi_id:03d}_ch-*_dwi.nii.gz')
-                )))
-                if not fnames:
-                    continue
-                mapped_vol = nibabel.load(fnames[0])
-                affine, header = mapped_vol.affine, mapped_vol.header
-                dat = [np.asarray(mapped_vol.dataobj).squeeze()]
-                for fname in fnames:
-                    dat += [np.asarray(nibabel.load(fname).dataobj).squeeze()]
-                if len(set([tuple(dat1.shape) for dat1 in dat])) > 1:
-                    # for some reason, this happened in one of the subjects...
-                    logging.error(f'sub-{ixi_id:03d}_dwi | '
-                                  f'shapes not compatible across channels')
-                else:
-                    # ensure 5D
-                    dat = list(map(lambda x: x[..., None, None], dat))
-                    # concatenate along the 5-th dimension (indexed 4)
-                    # as the 4-th dimension is reserved for time
-                    dat = np.concatenate(dat, axis=4)
-                    nibabel.save(
-                        nibabel.Nifti1Image(dat, affine, header),
-                        os.path.join(subdir, f'sub-{ixi_id:03d}_dwi.nii.gz')
+                ids[id] = site
+                dti_id = int(dti_id)
+                dst = os.path.join(raw, f'sub-{id:03d}', 'dwi')
+                basename = f'sub-{id:03d}_ch-{dti_id:02d}_dwi.nii.gz'
+                if not json_only:
+                    copy_from_buffer(
+                        f.extractfile(member),
+                        os.path.join(dst, basename)
                     )
-                    if 'json' in keys:
-                        jpath = os.path.join(
-                            subdir, f'sub-{ixi_id:03d}_dwi.json'
-                        )
-                        with open(jpath, 'wt') as fo:
-                            json.dump({
-                                **scans_json(site),
-                                **(modality_json['DTI'](site))
-                            }, fo, indent=2)
+        # Finally, go through each subject and combine the
+        # 3D b-series into 5D niftis
+        for id, site in ids.items():
+            # if we only write JSON, do it separately
+            dst = os.path.join(raw, f'sub-{id:03d}', 'dwi')
+            if json_only:
+                copy_json(
+                    os.path.join(TPLDIR, site, 'dwi.json'),
+                    os.path.join(dst, f'sub-{id:03d}_dwi.json')
+                )
+                continue
+            # now, concatenate volumes
+            logging.info(f'write sub-{id:03d}_dwi.nii.gz')
+            fnames = list(sorted(glob.glob(
+                os.path.join(dst, f'sub-{id:03d}_ch-*_dwi.nii.gz')
+            )))
+            if not fnames:
+                continue
+            mapped_vol = nibabel.load(fnames[0])
+            affine, header = mapped_vol.affine, mapped_vol.header
+            dat = [np.asarray(mapped_vol.dataobj).squeeze()]
+            for fname in fnames:
+                dat += [np.asarray(nibabel.load(fname).dataobj).squeeze()]
+            if len(set([tuple(dat1.shape) for dat1 in dat])) > 1:
+                # for some reason, this happened in one of the subjects...
+                logging.error('sub-{id:03d}_dwi | shapes not compatible')
                 for fname in fnames:
+                    logging.info(f'remove {os.path.basename(fname)}')
                     os.remove(fname)
+                continue
+            # ensure 5D
+            dat = list(map(lambda x: x[..., None, None], dat))
+            # concatenate along the 5-th dimension (indexed 4)
+            # as the 4-th dimension is reserved for time
+            dat = np.concatenate(dat, axis=4)
+            nibabel.save(
+                nibabel.Nifti1Image(dat, affine, header),
+                os.path.join(dst, f'sub-{id:03d}_dwi.nii.gz')
+            )
+            if 'json' in keys:
+                copy_json(
+                    os.path.join(TPLDIR, site, 'dwi.json'),
+                    os.path.join(dst, f'sub-{id:03d}_dwi.json')
+                )
+            for fname in fnames:
+                logging.info(f'remove {os.path.basename(fname)}')
+                os.remove(fname)
 
 
 def get_sites(path_tar):
@@ -519,13 +271,9 @@ def get_sites(path_tar):
     return sitemap
 
 
-def make_participants(path_xls, path_tsv, path_json, sites):
-    import xlrd
+def make_participants(path_xls, path_tsv, sites):
     book = xlrd.open_workbook(path_xls)
     sheet = book.sheet_by_index(0)
-
-    with open(path_json, 'wt') as f:
-        json.dump(participants_json, f, indent=2)
 
     ixi_header = [
         'IXI_ID',
@@ -590,9 +338,9 @@ def make_participants(path_xls, path_tsv, path_json, sites):
         'qualification',
         'study_date',
     ]
-    with open(path_tsv, 'wt') as fout:
-        writer = csv.writer(fout, delimiter='\t', quoting=csv.QUOTE_NONE)
-        writer.writerow(participants_header)
+
+    def iter_rows():
+        yield participants_header
         for n in range(1, sheet.nrows):
             ixi_row = sheet.row(n)
             if ixi_row[9].value == 0:
@@ -624,7 +372,9 @@ def make_participants(path_xls, path_tsv, path_json, sites):
                     'n/a'),
                 ixi_row[ixi_header.index('STUDY_DATE')].value,
             ]
-            writer.writerow(participant)
+            yield participant
+
+    write_tsv(iter_rows(), path_tsv)
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 
 import os
-import csv
 from pathlib import Path
+from braindataprep.utils import write_tsv
 
 
 fs_lookup_path = os.path.join(
@@ -158,7 +158,7 @@ def filter_lookup(lut, labels):
     return lut[:1] + [lkp for lkp in lut[1:] if lkp[0] in labels]
 
 
-def write_lookup(path, mode=None):
+def write_lookup(path, mode=None, makedirs=True):
     """
     Write a lookup table (LUT) as a tsv
 
@@ -176,7 +176,6 @@ def write_lookup(path, mode=None):
         - if `None`, store the full FS lookup table
         - else, it should contain a well formatted `list[list]`.
     """
-
     if mode == '2005':
         lookup = parse_fs_lookup(fs_2005_lookup_path, False)
     elif mode == '2009':
@@ -190,7 +189,4 @@ def write_lookup(path, mode=None):
         elif mode == 'aparc+aseg':
             lookup = filter_lookup(lookup, aseg_labels + aparc_labels)
 
-    with open(path, 'wt', newline='') as f:
-        writer = csv.writer(f, delimiter='\t', quoting=csv.QUOTE_NONE)
-        for row in lookup:
-            writer.writerow(row)
+    write_tsv(lookup, path, makedirs=makedirs)

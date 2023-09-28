@@ -1,0 +1,53 @@
+{
+  "delay": {
+  "Description": "Time to first visit",
+  "Units": "days"
+  },
+  "pathology": {
+    "N": "nondemented",
+    "D": "demented",
+    "C": "converted"
+  },
+  "age": {
+    "Description": "Age of the participant",
+    "Units": "years"
+  },
+  "educ": {
+    "Description": "Years of education",
+    "Units": "years"
+  },
+  "ses": {
+    "Description": "Socioeconomic status, assessed by the Hollingshead Index of Social Position and classified into categories from 1 (highest status) to 5 (lowest status) (Hollingshead, 1957).",
+    "Levels": {
+      "1": "highest socioeconomic status.",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "lowest socioeconomic status"
+    }
+  },
+  "mmse": {
+    "Description": "Mini-Mental State Examination. Ranges from 0 (worst) to 30 (best) (Folstein, Folstein, & McHugh, 1975)"
+  },
+  "cdr": {
+    "Description": "Clinical Dementia Rating (Morris, 1993). All participants with dementia (CDR >0) were diagnosed with probable AD.",
+    "Levels": {
+      "0": "no dementia",
+      "0.5": "very mild AD",
+      "1": "mild AD",
+      "2": "moderate AD"
+    }
+  },
+  "etiv": {
+    "Description": "Estimated Total Intracranial Volume",
+    "Unit": "cubic centimeter"
+  },
+  "nwbv": {
+    "Description": "Normalized Whole Brain Volume, expressed as a percent of all voxels in the atlas-masked image that are labeled as gray or white matter by the automated tissue segmentation process (Fotenos et al., 2005)",
+    "Unit": "unitless"
+  },
+  "asf": {
+    "Description": "Atlas Scaling Factor. Computed scaling factor that transforms native-space brain and skull to the atlas target (i.e., the determinant of the transform matrix) (Buckner et al., 2004)",
+    "Unit": "unitless"
+  }
+}

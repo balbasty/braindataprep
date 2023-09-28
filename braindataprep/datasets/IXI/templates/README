@@ -1,0 +1,112 @@
+# IXI Dataset
+
+## Demographics
+
+```
++================+====================================================================+
+| site           | The data has been collected at three different hospitals in London |
++================+====================================================================+
+| Guys           | Guy's Hospital, Great Maze Pond, London SE1 9RT, UK                |
++----------------+--------------------------------------------------------------------+
+| HH             | Hammersmith Hospital, 72 Du Cane Rd, London W12 0HS, UK            |
++----------------+--------------------------------------------------------------------+
+| IOP            | Institute of Psychiatry, Denmark Hill, London SE5 8AB, UK          |
++================+====================================================================+
+| sex            | Sex of the participant as reported by the participant              |
++================+====================================================================+
+| M              | male                                                               |
++----------------+--------------------------------------------------------------------+
+| F              | female                                                             |
++================+====================================================================+
+| ethnicity      | Ethnicity of the participant as reported by the participant        |
++================+====================================================================+
+| W              | white                                                              |
++----------------+--------------------------------------------------------------------+
+| B              | black or black british                                             |
++----------------+--------------------------------------------------------------------+
+| A              | asian or asian british                                             |
++----------------+--------------------------------------------------------------------+
+| C              | chinese                                                            |
++----------------+--------------------------------------------------------------------+
+| O              | other                                                              |
++================+====================================================================+
+| marital_status | Marital status of the participant                                  |
++================+====================================================================+
+| S              | single                                                             |
++----------------+--------------------------------------------------------------------+
+| M              | married                                                            |
++----------------+--------------------------------------------------------------------+
+| C              | cohabiting                                                         |
++----------------+--------------------------------------------------------------------+
+| D              | divorced/separated                                                 |
++----------------+--------------------------------------------------------------------+
+| W              | widowed                                                            |
++================+====================================================================+
+| occupation     | Occupation of the participant as reported by the participant       |
++================+====================================================================+
+| FT             | go out to full time employment                                     |
++----------------+--------------------------------------------------------------------+
+| PT             | go out to part time employment (<25hrs)                            |
++----------------+--------------------------------------------------------------------+
+| S              | study at college or university                                     |
++----------------+--------------------------------------------------------------------+
+| H              | full-time housework                                                |
++----------------+--------------------------------------------------------------------+
+| R              | retired                                                            |
++----------------+--------------------------------------------------------------------+
+| U              | unemployed                                                         |
++----------------+--------------------------------------------------------------------+
+| WFH            | work for pay at home                                               |
++----------------+--------------------------------------------------------------------+
+| O              | other                                                              |
++================+====================================================================+
+| qualification  | Qualification of the participant as reported by the participant    |
++================+====================================================================+
+| N              | No qualifications                                                  |
++----------------+--------------------------------------------------------------------+
+| O              | O-levels, GCSEs, or CSEs                                           |
++----------------+--------------------------------------------------------------------+
+| A              | A-levels                                                           |
++----------------+--------------------------------------------------------------------+
+| F              | Further education e.g. City & Guilds / NVQs                        |
++----------------+--------------------------------------------------------------------+
+| U              | University or Polytechnic degree                                   |
++----------------+--------------------------------------------------------------------+
+```
+
+## Notes from the IXI website
+
+In this project we have collected nearly 600 MR images from normal,
+healthy subjects. The MR image acquisition protocol for each subject includes:
+
+- T1, T2 and PD-weighted images
+- MRA images
+- Diffusion-weighted images (15 directions)
+
+The data has been collected at three different hospitals in London:
+
+- Hammersmith Hospital using a Philips 3T system
+  ([details of scanner parameters](http://brain-development.org/scanner-philips-medical-systems-intera-3t/))
+- Guy's Hospital using a Philips 1.5T system
+  ([details of scanner parameters](http://brain-development.org/scanner-philips-medical-systems-gyroscan-intera-1-5t/))
+- Institute of Psychiatry using a GE 1.5T system (details of the scan parameters not available at the moment)
+
+The data has been collected as part of the project:
+
+**IXI - Information eXtraction from Images (EPSRC GR/S21533/02)**
+
+The images in NIFTI format can be downloaded from here:
+
+- T1 images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-T1.tar))
+- T2 images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-T2.tar))
+- PD images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-PD.tar))
+- MRA images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-MRA.tar))
+- DTI images ([all images](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI-DTI.tar),
+  [bvecs.txt](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/bvecs.txt),
+  [bvals.txt](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/bvals.txt))
+- Demographic information ([spreadsheet](http://biomedic.doc.ic.ac.uk/brain-development/downloads/IXI/IXI.xls))
+
+This data is made available under the Creative Commons
+[CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
+If you use the IXI data please acknowledge the source of the IXI data,
+e.g. this website.

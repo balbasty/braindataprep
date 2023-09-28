@@ -1,0 +1,385 @@
+{
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "AFFFAMM": {
+    "Description": "Are there affected first-degree relatives (biological parents, full siblings, or biological children)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "FADMUT": {
+    "Description": "In this family, is there evidence for an AD mutation? If Yes, select predominant mutation.",
+    "Levels": {
+      "0": "No",
+      "1": "Yes, APP",
+      "2": "Yes, PS-1 (PSEN-1)",
+      "3": "Yes, PS-2 (PSEN-2)",
+      "8": "Yes, Other (specify)",
+      "9": "Unknown whether mutation exists"
+    }
+  },
+  "FADMUTX": {
+    "Description": "If Yes, Other (specify) (Blank if FADMUT ≠ 8)"
+  },
+  "FADMUSO": {
+    "Description": "Source of evidence for AD mutation. (Blank if FADMUT in {0, 9})",
+    "Levels": {
+      "1": "Family report (no test documentation available)",
+      "2": "Commercial test documentation",
+      "3": "Research lab test documentation",
+      "8": "Other (specify)",
+      "9": "Unknown"
+    }
+  },
+  "FADMUSOX": {
+    "Description": "If Yes, Other (specify) (Blank if FADMUT in {0, 9} or FADMUSO ≠ 8)"
+  },
+  "FFTDMUT": {
+    "Description": "In this family, is there evidence for an FTLD mutation? If Yes, select predominant mutation.",
+    "Levels": {
+      "0": "No",
+      "1": "Yes, MAPT",
+      "2": "Yes, PGRN",
+      "3": "Yes, C9orf72",
+      "4": "Yes, FUS",
+      "5": "Yes, Other (specify)",
+      "9": "Unknown"
+    }
+  },
+  "FFTDMUTX": {
+    "Description": "If Yes, Other (specify) (Blank if FFTDMUT ≠ 8)"
+  },
+  "FFTDMUSO": {
+    "Description": "Source of evidence for FTLD mutation. (Blank if FFTDMUT in {0, 9})",
+    "Levels": {
+      "1": "Family report (no test documentation available)",
+      "2": "Commercial test documentation",
+      "3": "Research lab test documentation",
+      "8": "Other (specify)",
+      "9": "Unknown"
+    }
+  },
+  "FFTDMUSX": {
+    "Description": "If Yes, Other (specify) (Blank if FFTDMUT in {0, 9} or FFTDMUSO ≠ 8)"
+  },
+  "FOTHMUT": {
+    "Description": "In this family, is there evidence for a mutation other than an AD or FTLD mutation?.",
+    "Levels": {
+      "0": "No",
+      "1": "Yes (specify)",
+      "9": "Unknown"
+    }
+  },
+  "FOTHMUTX": {
+    "Description": "If Yes, Other (specify) (Blank if FOTHMUT ≠ 1)"
+  },
+  "FOTHMUSO": {
+    "Description": "Source of evidence for other mutation. (Blank if FOTHMUT in {0, 9})",
+    "Levels": {
+      "1": "Family report (no test documentation available)",
+      "2": "Commercial test documentation",
+      "3": "Research lab test documentation",
+      "8": "Other (specify)",
+      "9": "Unknown"
+    }
+  },
+  "FOTHMUSX": {
+    "Description": "If Yes, Other (specify) (Blank if FOTHMUT in {0, 9} or FOTHMUSO ≠ 8)"
+  },
+  "MOMMOB": {
+    "Description": "Father - birth month",
+    "Levels": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December",
+      "99": "Unknown"
+    }
+  },
+  "MOMYOB": {
+      "Description": "Father - birth year",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "MOMDAGE": {
+      "Description": "Father - age at death",
+      "Units": "years",
+      "Levels": {
+        "888": "N/A",
+        "999": "Unknown"
+      }
+  },
+  "MOMNEUR": {
+    "Description": "Father - neurological problem",
+    "Levels": {
+      "1": "Cognitive impairment/behavior change",
+      "2": "Parkinsonism",
+      "3": "ALS",
+      "4": "Other neurologic condition such as multiple sclerosis or stroke",
+      "5": "Psychiatric condition such as schizophrenia, bipolar disorder, or alcoholism",
+      "8": "N/A, no neurological problem or psychiatric condition",
+      "9": "Unknown"
+    }
+  },
+  "MOMPRDX": {
+    "Description": "Father - primary diagnosis (40-490)",
+    "Levels": {
+      "999": "Specific diagnosis unknown"
+    }
+  },
+  "MOMMOE": {
+    "Description": "Father - method of evaluation (Blank if MOMNEUR in {8, 9})",
+    "Levels": {
+      "1": "Autopsy",
+      "2": "Examination",
+      "3": "Medical record review from formal dementia evaluation",
+      "4": "Review of general medical records AND co-participant and/or subject telephone interview",
+      "5": "Review of general medical records only",
+      "6": "Subject and/or co-participant telephone  interview",
+      "7": "Family report"
+    }
+  },
+  "MOMAGEO": {
+    "Description": "Father - age of onset (Blank if MOMNEUR in {8, 9})",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "DADMOB": {
+    "Description": "Father - birth month",
+    "Levels": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December",
+      "99": "Unknown"
+    }
+  },
+  "DADYOB": {
+      "Description": "Father - birth year",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "DADDAGE": {
+      "Description": "Father - age at death",
+      "Units": "years",
+      "Levels": {
+        "888": "N/A",
+        "999": "Unknown"
+      }
+  },
+  "DADNEUR": {
+    "Description": "Father - neurological problem",
+    "Levels": {
+      "1": "Cognitive impairment/behavior change",
+      "2": "Parkinsonism",
+      "3": "ALS",
+      "4": "Other neurologic condition such as multiple sclerosis or stroke",
+      "5": "Psychiatric condition such as schizophrenia, bipolar disorder, or alcoholism",
+      "8": "N/A, no neurological problem or psychiatric condition",
+      "9": "Unknown"
+    }
+  },
+  "DADPRDX": {
+    "Description": "Mother - primary diagnosis (40-490)",
+    "Levels": {
+      "999": "Specific diagnosis unknown"
+    }
+  },
+  "DADMOE": {
+    "Description": "Father - method of evaluation (Blank if DADNEUR in {8, 9})",
+    "Levels": {
+      "1": "Autopsy",
+      "2": "Examination",
+      "3": "Medical record review from formal dementia evaluation",
+      "4": "Review of general medical records AND co-participant and/or subject telephone interview",
+      "5": "Review of general medical records only",
+      "6": "Subject and/or co-participant telephone  interview",
+      "7": "Family report"
+    }
+  },
+  "DADAGEO": {
+    "Description": "Father - age of onset (Blank if DADNEUR in {8, 9})",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "SIBS": {
+    "Description": "Number of full siblings?",
+    "Levels": {
+      "77": "Adopted, unknown"
+    }
+  },
+  "SIB{d}MOB": {
+    "Description": "Sibling {d} - birth month",
+    "Levels": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December",
+      "99": "Unknown"
+    }
+  },
+  "SIB{d}YOB": {
+      "Description": "Sibling {d} - birth year",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "SIB{d}AGD": {
+      "Description": "Sibling {d} - age at death",
+      "Units": "years",
+      "Levels": {
+        "888": "N/A",
+        "999": "Unknown"
+      }
+  },
+  "SIB{d}NEU": {
+    "Description": "Sibling {d} - neurological problem",
+    "Levels": {
+      "1": "Cognitive impairment/behavior change",
+      "2": "Parkinsonism",
+      "3": "ALS",
+      "4": "Other neurologic condition such as multiple sclerosis or stroke",
+      "5": "Psychiatric condition such as schizophrenia, bipolar disorder, or alcoholism",
+      "8": "N/A, no neurological problem or psychiatric condition",
+      "9": "Unknown"
+    }
+  },
+  "SIB{d}PDX": {
+    "Description": "Mother - primary diagnosis (40-490)",
+    "Levels": {
+      "999": "Specific diagnosis unknown"
+    }
+  },
+  "SIB{d}MOE": {
+    "Description": "Sibling {d} - method of evaluation (Blank if SIB{d}NEU in {8, 9})",
+    "Levels": {
+      "1": "Autopsy",
+      "2": "Examination",
+      "3": "Medical record review from formal dementia evaluation",
+      "4": "Review of general medical records AND co-participant and/or subject telephone interview",
+      "5": "Review of general medical records only",
+      "6": "Subject and/or co-participant telephone  interview",
+      "7": "Family report"
+    }
+  },
+  "SIB{d}AGO": {
+    "Description": "Sibling {d} - age of onset (Blank if SIB{d}NEU in {8, 9})",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "KIDS": {
+    "Description": "Number of biological children?",
+    "Levels": {
+      "77": "Adopted, unknown"
+    }
+  },
+  "KID{d}MOB": {
+    "Description": "Child {d} - birth month",
+    "Levels": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December",
+      "99": "Unknown"
+    }
+  },
+  "KID{d}YOB": {
+      "Description": "Child {d} - birth year",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "KID{d}AGD": {
+      "Description": "Child {d} - age at death",
+      "Units": "years",
+      "Levels": {
+        "888": "N/A",
+        "999": "Unknown"
+      }
+  },
+  "KID{d}NEU": {
+    "Description": "Child {d} - neurological problem",
+    "Levels": {
+      "1": "Cognitive impairment/behavior change",
+      "2": "Parkinsonism",
+      "3": "ALS",
+      "4": "Other neurologic condition such as multiple sclerosis or stroke",
+      "5": "Psychiatric condition such as schizophrenia, bipolar disorder, or alcoholism",
+      "8": "N/A, no neurological problem or psychiatric condition",
+      "9": "Unknown"
+    }
+  },
+  "KID{d}PDX": {
+    "Description": "Mother - primary diagnosis (40-490)",
+    "Levels": {
+      "999": "Specific diagnosis unknown"
+    }
+  },
+  "KID{d}MOE": {
+    "Description": "Child {d} - method of evaluation (Blank if KID{d}NEU in {8, 9})",
+    "Levels": {
+      "1": "Autopsy",
+      "2": "Examination",
+      "3": "Medical record review from formal dementia evaluation",
+      "4": "Review of general medical records AND co-participant and/or subject telephone interview",
+      "5": "Review of general medical records only",
+      "6": "Subject and/or co-participant telephone  interview",
+      "7": "Family report"
+    }
+  },
+  "KID{d}AGO": {
+    "Description": "Child {d} - age of onset (Blank if KID{d}NEU in {8, 9})",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  }
+}

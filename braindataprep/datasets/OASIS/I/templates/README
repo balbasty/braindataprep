@@ -1,0 +1,40 @@
+# OASIS-I: Cross-sectional data across the adult lifespan (Marcus et al., 2007)
+
+## Quotes from the original fact sheet
+
+### Sumary
+
+OASIS provides brain imaging data that are freely available for distribution
+and data analysis. This data set consists of a cross-sectional collection of
+416 subjects covering the adult life span aged 18 to 96 including individuals
+with early-stage Alzheimer's Disease (AD). For each subject, 3 or 4 individual
+T1-weighted MRI scans obtained within a single imaging session are included.
+The subjects are all right-handed and include both men and women. 100 of the
+included subjects over the age of 60 have been diagnosed with very mild to
+mild AD. Additionally, for 20 of the nondemented subjects, images from a
+subsequent scan session after a short delay (less than 90 days) are also
+included as a means of assessing acquisition reliability.
+
+All data have been anonymized to accommodate public distribution.
+Facial features were removed at the fMRIDC (http://www.fmridc.org)
+using the Brain Extraction Tool.
+
+The full set is 15.8 GB compressed and 50 GB uncompressed.
+The data are available at http://www.oasis-brains.org.
+
+### Image Data
+
+For each subject, a number of images are provided, including:
+
+    1.  3-4 images corresponding to multiple repetitions of the same
+        structural protocol within a single session to increase
+        signal-to-noise,
+    2.  an average image that is a motion-corrected coregistered average
+        of all available data,
+    3.  a gain-field corrected atlasregistered image to the 1988 atlas
+        space of Talairach and Tournoux (Buckner et al., 2004),
+    4.  a masked version of the atlas-registered image in which all
+        non-brain voxels have been assigned an intensity value of 0, and
+    5.  a grey/white/CSF segmented image (Zhang et al., 2001).
+
+All images are in 16-bit big-endian Analyze 7.5 format.

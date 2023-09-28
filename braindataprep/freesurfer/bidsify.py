@@ -92,23 +92,22 @@ bidsifiable_outputs = (
 )
 
 
-def bidsify_toplevel(dst, fs_version=()):
-    logging.info('write atlas-Aseg_dseg.tsv')
+def bidsify_toplevel(dst, fs_version=(), makedirs=True):
+    if makedirs:
+        os.makedirs(dst, exist_ok=True)
+
     write_lookup(
         os.path.join(dst, 'atlas-Aseg_dseg.tsv'),
         'aseg'
     )
-    logging.info('write atlas-AsegDesikanKillian_dseg.tsv')
     write_lookup(
         os.path.join(dst, 'atlas-AsegDesikanKillian_dseg.tsv'),
         'aparc+aseg'
     )
-    logging.info('write atlas-Desikan-Killian_dseg.tsv')
     write_lookup(
         os.path.join(dst, 'atlas-Desikan-Killian_dseg.tsv'),
         'dk'
     )
-    logging.info('write atlas-Destrieux_dseg.tsv')
     write_lookup(
         os.path.join(dst, 'atlas-Destrieux_dseg.tsv'),
         '2005' if fs_version < (4, 5) else '2009'

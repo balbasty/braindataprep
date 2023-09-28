@@ -1,0 +1,7 @@
+{
+  "Manufacturer":  "Philips",
+  "MagneticFieldStrength": 1.5,
+  "EchoTime": 6.9052E-3,
+  "RepetitionTimeExcitation": 20E-3,
+  "FlipAngle": 25
+}

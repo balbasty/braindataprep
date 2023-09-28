@@ -1,0 +1,10 @@
+{
+  "Manufacturer": "Siemens",
+  "MagneticFieldStrength": 1.5,
+  "PulseSequenceType": "MPRAGE",
+  "EchoTime": 4E-3,
+  "InversionTime": 20E-3,
+  "RepetitionTimeExcitation": 9.7E-3,
+  "RepetitionTimePreparation": 200E-3,
+  "FlipAngle": 10
+}

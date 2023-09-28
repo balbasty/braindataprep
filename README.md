@@ -26,7 +26,7 @@ Usage: python -m braindataprep.datasets.IXI.download [OPTIONS]
 
 Options:
   --path TEXT                     Path to tree
-  --key [T1w|T2w|PDw|MRA|DTI|meta]
+  --key [meta|T1w|T2w|PDw|MRA|DTI]
                                   Modalities to download
   --packet INTEGER                Packet size to download
   --help                          Show this message and exit
@@ -35,7 +35,7 @@ Usage: python -m braindataprep.datasets.IXI.bidsify [OPTIONS]
 
 Options:
   --path TEXT                     Path to tree
-  --key [meta|json|T1|T2|PD|MRA|DTI]
+  --key [meta|json|T1w|T2w|PDw|angio|swi]
                                   Only bidsify these keys
   --json-only                     Only write jsons (not volumes)
   --help                          Show this message and exit.

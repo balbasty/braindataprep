@@ -1,0 +1,86 @@
+{
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "HEIGHT": {
+    "Description": "Subject height",
+    "Units": "inches",
+    "Levels": {
+      "88.8": "Not assessed"
+    }
+  },
+  "WEIGHT": {
+    "Description": "Subject height",
+    "Units": "lbs",
+    "Levels": {
+      "888": "Not assessed"
+    }
+  },
+  "BPSYS": {
+    "Description": "Subject blood pressure (sitting)",
+    "Levels": {
+      "888": "Not assessed"
+    }
+  },
+  "BPDIAS": {
+    "Description": "Subject blood pressure (sitting), diastolic",
+    "Levels": {
+      "888": "Not assessed"
+    }
+  },
+  "HRATE": {
+    "Description": "Subject resting heart rate (pulse)",
+    "Levels": {
+      "888": "Not assessed"
+    }
+  },
+  "VISION": {
+    "Description": "Without corrective lenses, is the subject's vision functionally normal?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "VISCORR": {
+    "Description": "Does the subject usually wear corrective lenses?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "VISWCORR": {
+    "Description": "If yes, is the subject's vision functionally normal with corrective lenses? (Blank if VISCORR ≠ 1)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "HEARING": {
+    "Description": "Without a hearing aid(s), is the subject's hearing functionally normal?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "HEARAID": {
+    "Description": "Does the subject usually wear a hearing aid(s)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "HEARWAID": {
+    "Description": "If yes, is the subject's hearing functionally normal with a hearing aid(s)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  }
+}

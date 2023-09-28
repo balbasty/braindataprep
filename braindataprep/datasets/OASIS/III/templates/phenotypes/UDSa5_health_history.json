@@ -1,0 +1,559 @@
+{
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "TOBAC30": {
+    "Description": "Has the subject smoked within the last 30 days?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "TOBAC100": {
+    "Description": "Has the subject smoked more than 100 cigarettes in his/her life?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "SMOKYRS": {
+    "Description": "Total years smoked (Blank if TOBAC100 ≠ 1)",
+    "Units": "years",
+    "Levels": {
+      "99": "Unknown"
+    }
+  },
+  "PACKSPER": {
+    "Description": "Average number of packs smoked per day (Blank if TOBAC100 ≠ 1)",
+    "Levels": {
+      "1": "1 cigarette to less than 1/2 pack",
+      "2": "1/2 pack to less than 1 pack",
+      "3": "1 pack to 1 1/2 packs",
+      "4": "1 1/2 packs to 2 packs",
+      "5": "More than two packs",
+      "9": "Unknown"
+    }
+  },
+  "QUITSMOK": {
+    "Description": "If the subject quit smoking, specify age at which he/she last smoked (i.e., quit)",
+    "Units": "years",
+    "Levels": {
+      "888": "N/A",
+      "999": "Unknown"
+    }
+  },
+  "ALOCCAS": {
+    "Description": "In the past three months, has the subject consumed any alcohol?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "ALCFREQ": {
+    "Description": "During the past three months, how often did the subject have at least one drink of any alcoholic beverage such as wine, beer, malt liquor, or spirits? (Blank if ALCOCCAS ≠ 1)",
+    "Levels": {
+      "0": "Less than once a month",
+      "1": "About once a month",
+      "2": "About once a week",
+      "3": "A few times a week",
+      "4": "Daily or almost daily",
+      "9": "Unknown"
+    }
+  },
+  "CVHATT": {
+    "Description": "Heart attack/cardiac arrest",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "HATTMULT": {
+    "Description": "More than one heart attack? (Blank if CVHATT in {0, 9})",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "HATTYEAR": {
+    "Description": "Year of most recent heart attack (Blank if CVHATT in {0, 9})",
+    "Units": "years",
+    "Levels": {
+      "9999": "Unknown"
+    }
+  },
+  "CVAFIB": {
+    "Description": "Atrial fibrillation",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVANGIO": {
+    "Description": "Angioplasty/endarterectomy/stent",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVBYPASS": {
+    "Description": "Cardiac bypass procedure",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVPACDEF": {
+    "Description": "Pacemaker and/or defibrillator",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVCHF": {
+    "Description": "Congestive heart failure",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVANGINA": {
+    "Description": "Angina",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVHVALVE": {
+    "Description": "Heart valve replacement or repair",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVOTHR": {
+    "Description": "Other cardiovascular disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "CVOTHRX": {
+    "Description": "Other cardiovascular disease (specify) (Blank if CVOTHR in {0, 9})"
+  },
+  "CBSTROKE": {
+    "Description": "Stroke - by history, not exam (imaging is not required)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "STROKMUL": {
+    "Description": "More than one stroke? (Blank if CBSTROKE in {0, 9})",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "STROKYR": {
+    "Description": "Year of most recent stroke (Blank if CBSTROKE in {0, 9})",
+    "Units": "years",
+    "Levels": {
+      "9999": "Unknown"
+    }
+  },
+  "CBTIA": {
+    "Description": "Transient ischemic attack (TIA)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "TIAMULT": {
+    "Description": "More than one TIA? (Blank if CBTIA in {0, 9})",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "TIAYEAR": {
+    "Description": "Year of most recent TIA (Blank if CBTIA in {0, 9})",
+    "Units": "years",
+    "Levels": {
+      "9999": "Unknown"
+    }
+  },
+  "PD": {
+    "Description": "Parkinson's disease (PD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "9": "Unknown"
+    }
+  },
+  "PDYR": {
+    "Description": "Year of PD diagnosis (Blank if PD in {0, 9})",
+    "Units": "years",
+    "Levels": {
+      "9999": "Unknown"
+    }
+  },
+  "PDOTHR": {
+    "Description": "Other parkinsonian disorder",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "9": "Unknown"
+    }
+  },
+  "PDOTHRYR": {
+    "Description": "Year of parkinsonian disorder diagnosis (Blank if PDOTHR in {0, 9})",
+    "Units": "years",
+    "Levels": {
+      "9999": "Unknown"
+    }
+  },
+  "SEIZURES": {
+    "Description": "Seizures",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "TBI": {
+    "Description": "Traumatic brain injury (TBI)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "TBIBRIEF": {
+    "Description": "TBI with brief loss of consciousness (< 5 minutes) (Blank if TBI in {0, 9}",
+    "Levels": {
+      "0": "No",
+      "1": "Single",
+      "2": "Repeated/multiple",
+      "9": "Unknown"
+    }
+  },
+  "TBIEXTEN": {
+    "Description": "TBI with extended loss of consciousness (5 minutes or longer) (Blank if TBI in {0, 9}",
+    "Levels": {
+      "0": "No",
+      "1": "Single",
+      "2": "Repeated/multiple",
+      "9": "Unknown"
+    }
+  },
+  "TBIWOLOS": {
+    "Description": "TBI without loss of consciousness (as might result from military detonations or sports injuries)? (Blank if TBI in {0, 9}",
+    "Levels": {
+      "0": "No",
+      "1": "Single",
+      "2": "Repeated/multiple",
+      "9": "Unknown"
+    }
+  },
+  "TBIYEAR": {
+    "Description": "Year of most recent TBI (Blank if PDOTHR in {0, 9})",
+    "Units": "years",
+    "Levels": {
+      "9999": "Unknown"
+    }
+  },
+  "DIABETES": {
+    "Description": "Diabetes",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "DIABTYPE": {
+    "Description": "If Recent/active or Remote/inactive, which type? (Blank if DIABETES in {0, 9}",
+    "Levels": {
+      "1": "Type 1",
+      "2": "Type 2",
+      "3": "Other type (diabetes insipidus, latent autoimmune diabetes/type 1.5, gestational diabetes)",
+      "9": "Unknown"
+    }
+  },
+  "HYPERTEN": {
+    "Description": "Hypertension",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "HYPERCHO": {
+    "Description": "Hypercholesterolemia",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "B12DEF": {
+    "Description": "B12 deficiency",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "THYROID": {
+    "Description": "Thyroid disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "ARTHRIT": {
+    "Description": "Arthritis",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "ARTHTYPE": {
+    "Description": "Type of arthritis (Blank if ARTHRIT in {0, 9})",
+    "Levels": {
+      "1": "Rheumatoid",
+      "2": "Osteoarthritis",
+      "3": "Other",
+      "9": "Unknown"
+    }
+  },
+  "ARTHTYPX": {
+    "Description": "Other arthritis (specify) (Blank if ARTHRIT in {0, 9} or ARTHTYPE ≠ 3)"
+  },
+  "ARTHUPEX": {
+    "Description": "Region affected: upper extremity",
+    "Levels": {
+      "0": "Blank",
+      "1": "Upper Extremity"
+    }
+  },
+  "ARTHLOEX": {
+    "Description": "Region affected: lower extremity (Blank if ARTHRIT in {0, 9})",
+    "Levels": {
+      "0": "Blank",
+      "1": "Lower Extremity"
+    }
+  },
+  "ARTHSPIN": {
+    "Description": "Region affected: spine (Blank if ARTHRIT in {0, 9})",
+    "Levels": {
+      "0": "Blank",
+      "1": "Spine"
+    }
+  },
+  "ARTHUNK": {
+    "Description": "Region affected: unknown (Blank if ARTHRIT in {0, 9})",
+    "Levels": {
+      "0": "Blank",
+      "1": "Unknown"
+    }
+  },
+  "INCONTU": {
+    "Description": "Incontinence - Urinary",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "INCONTF": {
+    "Description": "Incontinence - Bowel",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "APNEA": {
+    "Description": "Sleep apnea",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "RBD": {
+    "Description": "REM sleep behavior disorder (RBD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "INSOMN": {
+    "Description": "Hyposomnia/insomnia",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "OTHSLEEP": {
+    "Description": "Other sleep disorder",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "OTHSLEEX": {
+    "Description": "Other sleep disorder (specify) (Blank if OTHSLEEP in {0, 9})"
+  },
+  "ALCOHOL": {
+    "Description": "Alcohol abuse: Clinically significant impairment occuring over a 12-month period manifested in one of the following areas: work, driving, legal, or social",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "ABUSOTHR": {
+    "Description": "Other abused substances: Clinically significant impairment occuring over a 12-month period manifested in one of the following areas: work, driving, legal, or social",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "ABUSX": {
+    "Description": "Specify (Blank if ABUSOTHR in {0, 9})"
+  },
+  "PTSD": {
+    "Description": "Post-traumatic stress disorder (PTSD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "BIPOLAR": {
+    "Description": "Bipolar disorder",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "SCHIZ": {
+    "Description": "Schizophrenia",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "DEP2YRS": {
+    "Description": "Active depression in the last two years",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "DEPOTHR": {
+    "Description": "Depression episodes more than two years ago",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "ANXIETY": {
+    "Description": "Anxiety",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "OCD": {
+    "Description": "Obsessive-compulsive disorder (OCD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "NPSYDEV": {
+    "Description": "Developmental neuropsychiatric disorders (e.g., autism spectrum disorder [ASD], attention-deficit hyperactivity disorder [ADHD], dyslexia)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "PSYCDIS": {
+    "Description": "Other psychiatric disorders",
+    "Levels": {
+      "0": "Absent",
+      "1": "Recent/Active",
+      "2": "Remote/Inactive",
+      "9": "Unknown"
+    }
+  },
+  "PSYCDISX": {
+    "Description": "If recent/active or remote/inactive, specify disorder"
+  }
+}

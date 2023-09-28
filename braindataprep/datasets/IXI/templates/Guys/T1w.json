@@ -1,0 +1,8 @@
+{
+  "Manufacturer":  "Philips",
+  "MagneticFieldStrength": 1.5,
+  "PulseSequenceType": "Gradient Echo",
+  "EchoTime": 4.603E-3,
+  "RepetitionTimeExcitation": 9.813E-3,
+  "FlipAngle": 8
+}

@@ -1,0 +1,590 @@
+{
+  "delay": {
+  "Description": "Time to first visit",
+  "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant",
+    "Units": "years"
+  },
+  "MOCACOMP": {
+    "Description": "Was any part of MoCA administered?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MOCAREAS": {
+    "Description": "Was any part of MoCA administered? If No, enter reason code, 95-98 (Blank if MOCACOMP = 1)",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCALOC": {
+    "Description": "MoCA was administered? (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "1": "In ADC or Clinic",
+      "2": "In Home",
+      "3": "In-person - other"
+    }
+  },
+  "MOCALAN": {
+    "Description": "Language of MoCA administration (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "1": "English",
+      "2": "Spanish",
+      "3": "Other"
+    }
+  },
+  "MOCALANX": {
+    "Description": "Language of MoCA administration - Other specify (Blank if MOCACOMP = 0 or MOCALAN ≠ 3)"
+  },
+  "MOCAVIS": {
+    "Description": "Subject was unable to complete one or more sections due to visual impairment (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MOCAHEAR": {
+    "Description": "Subject was unable to complete one or more sections due to hearing impairment (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MOCATOTS": {
+    "Description": "MoCA Total Raw Score - uncorrected (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "11": "",
+      "12": "",
+      "13": "",
+      "14": "",
+      "15": "",
+      "16": "",
+      "17": "",
+      "18": "",
+      "19": "",
+      "20": "",
+      "21": "",
+      "22": "",
+      "23": "",
+      "24": "",
+      "25": "",
+      "26": "",
+      "27": "",
+      "28": "",
+      "29": "",
+      "30": "",
+      "88": "Item not administered"
+    }
+  },
+  "MOCATRAI": {
+    "Description": "MoCA: Visuospatial/executive - Trails (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCACUBE": {
+    "Description": "MoCA: Visuospatial/executive - Cube (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCACLOC": {
+    "Description": "MoCA: Visuospatial/executive - Clock contour (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCACLON": {
+    "Description": "MoCA: Visuospatial/executive - Clock numbers (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCACLOH": {
+    "Description": "MoCA: Visuospatial/executive - Clock hands (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCANAMI": {
+    "Description": "MoCA: Language - Naming (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAREGI": {
+    "Description": "MoCA: Memory - Registration (two trials) (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCADIGI": {
+    "Description": "MoCA: Attention - Digits (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCALETT": {
+    "Description": "MoCA: Attention - Letter A (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCASER7": {
+    "Description": "MoCA: Attention - Serials 7s (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAREPE": {
+    "Description": "MoCA: Language - Repetition (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAFLUE": {
+    "Description": "MoCA: Language - Fluency (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAABST": {
+    "Description": "MoCA: Abstraction (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCARECN": {
+    "Description": "MoCA: Delayed recall - No cue (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCARECC": {
+    "Description": "MoCA: Delayed recall - Category cue (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCARECR": {
+    "Description": "MoCA: Delayed recall - Recognition (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAORDT": {
+    "Description": "MoCA: Orientation - Date (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAORMO": {
+    "Description": "MoCA: Orientation - Month (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAORYR": {
+    "Description": "MoCA: Orientation - Year (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAORDY": {
+    "Description": "MoCA: Orientation - Day (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAORPL": {
+    "Description": "MoCA: Orientation - Place (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MOCAORCT": {
+    "Description": "MoCA: Orientation - City (Blank if MOCACOMP = 0)",
+    "Levels": {
+      "0": "Failure",
+      "1": "Success",
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "NPSYCLOC": {
+    "Description": "The tests following the MoCA were administered?",
+    "Levels": {
+      "1": "In ADC or Clinic",
+      "2": "In Home",
+      "3": "In-person - other"
+    }
+  },
+  "NPSYLAN": {
+    "Description": "Tests following the MoCA: Language of test administration",
+    "Levels": {
+      "1": "English",
+      "2": "Spanish",
+      "3": "Other"
+    }
+  },
+  "NPSYLANX": {
+    "Description": "Tests following the MoCA: Language of test administration - Other specify (Blank if NPSYLAN ≠ 3)"
+  },
+  "CRAFTVRS": {
+    "Description": "Craft Story 21 Recall (Immediate): Total story units recalled, verbatim scoring {0..44}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "CRAFTURS": {
+    "Description": "Craft Story 21 Recall (Immediate): Total story units recalled, paraphrase scoring {0..25} (Blank if CRAFTVRS in {95..98})"
+  },
+  "UDSBENTC": {
+    "Description": "Benson Complex Figure Copy: Total Score for copy of Benson figure {0..17}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "DIGFORCT": {
+    "Description": "Number Span Test: Forward - Number of correct trials {0..14}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "DIGFORSL": {
+    "Description": "Number Span Test: Forward - Longest span forward {0, 3..9} (Blank if DIGFORCT in {95..98})",
+    "Levels": {
+      "0": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": ""
+    }
+  },
+  "DIGBACCT": {
+    "Description": "Number Span Test: Backward - Number of correct trials {0..14}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "DIGBACLS": {
+    "Description": "Number Span Test: Backward - Longest span forward {0, 2..8} (Blank if DIGBACCT in {95..98})",
+    "Levels": {
+      "0": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": ""
+    }
+  },
+  "ANIMALS": {
+    "Description": "Category Fluency - Animals: Total number of animals named in 60 seconds {0..77}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "VEG": {
+    "Description": "Category Fluency - Vegetables: Total number of vegetables named in 60 seconds {0..77}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "TRAILA": {
+    "Description": "Trail Making Test - Part A: Total number of seconds to complete {0..150}",
+    "Levels": {
+      "995": "Physical problem",
+      "996": "Cognitive/behavior problem",
+      "997": "Other problem",
+      "998": "Verbal refusal"
+    }
+  },
+  "TRAILARR": {
+    "Description": "Trail Making Test - Part A: Number of commission errors {0..40} (Blank if TRAILA in {995..998})"
+  },
+  "TRAILALI": {
+    "Description": "Trail Making Test - Part A: Number of correct lines {0..24} (Blank if TRAILA in {995..998})"
+  },
+  "TRAILB": {
+    "Description": "Trail Making Test - Part B: Total number of seconds to complete {0..300}",
+    "Levels": {
+      "995": "Physical problem",
+      "996": "Cognitive/behavior problem",
+      "997": "Other problem",
+      "998": "Verbal refusal"
+    }
+  },
+  "TRAILBRR": {
+    "Description": "Trail Making Test - Part B: Number of commission errors {0..40} (Blank if TRAILB in {995..998})"
+  },
+  "TRAILBLI": {
+    "Description": "Trail Making Test - Part B: Number of correct lines {0..24} (Blank if TRAILB in {995..998})"
+  },
+  "CRAFTDVR": {
+    "Description": "Craft Story 21 Recall (Delayed): Total story units recalled, verbatim scoring {0..44}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "CRAFTDRE": {
+    "Description": "Craft Story 21 Recall (Delayed): Total story units recalled, paraphrase scoring {0..25} (Blank if CRAFTDVR in {95..98})"
+  },
+  "CRAFTDTI": {
+    "Description": "Craft Story 21 Recall (Delayed): Delay time {0..85} (Blank if CRAFTDVR in {95..98})",
+    "Levels": {
+      "99": "Unknown"
+    }
+  },
+  "CRAFTCUE": {
+    "Description": "Craft Story 21 Recall (Delayed): Cue (boy) needed (Blank if CRAFTDVR in {95..98})",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "UDSBENTD": {
+    "Description": "Benson Complex Figure Recall: Total Score for drawing of Benson figure following 10- to 15-minuted delay {0..17}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "UDSBENRS": {
+    "Description": "Benson Complex Figure Recall: Recognized original stimulus among four options (Blank if CRAFTDVR in {95..98})",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MINTTOTS": {
+    "Description": "Multilingual Naming Test (MINT) - Total score {0..32}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "MINTTOTW": {
+    "Description": "Multilingual Naming Test (MINT) - Total correct without semantic cue {0..32} (Blank if MINTTOTS in {95..98})"
+  },
+  "MINTSCNG": {
+    "Description": "Multilingual Naming Test (MINT) - Semantic cues: Number given {0..32} (Blank if MINTTOTS in {95..98})"
+  },
+  "MINTSCNC": {
+    "Description": "Multilingual Naming Test (MINT) - Semantic cues: Number correct with cue {0..32} (Blank if MINTTOTS in {95..98})",
+    "Levels": {
+      "88": "Not applicable"
+    }
+  },
+  "MINTPCNG": {
+    "Description": "Multilingual Naming Test (MINT) - Phonemic cues: Number given {0..32} (Blank if MINTTOTS in {95..98})"
+  },
+  "MINTPCNC": {
+    "Description": "Multilingual Naming Test (MINT) - Phonemic cues: Number correct with cue {0..32} (Blank if MINTTOTS in {95..98})",
+    "Levels": {
+      "88": "Not applicable"
+    }
+  },
+  "UDSVERFC": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of correct F-words generated in 1 minute {0..40}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "UDSVERFN": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of correct F-words repeated in 1 minute {0..15} (Blank if UDSVERFC in {95..98})"
+  },
+  "UDSVERNF": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of non-F-words and rule violation errors in 1 minute {0..15} (Blank if UDSVERFC in {95..98})"
+  },
+  "UDSVERLC": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of correct L-words generated in 1 minute {0..40}",
+    "Levels": {
+      "95": "Physical problem",
+      "96": "Cognitive/behavior problem",
+      "97": "Other problem",
+      "98": "Verbal refusal"
+    }
+  },
+  "UDSVERLR": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of correct L-words repeated in 1 minute {0..15} (Blank if UDSVERLC in {95..98})"
+  },
+  "UDSVERLN": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of non-L-words and rule violation errors in 1 minute {0..15} (Blank if UDSVERLC in {95..98})"
+  },
+  "UDSVERTN": {
+    "Description": "Verbal Fluency: Phonemic Test - Total number of correct F-words and L-words {0..80} (Blank if UDSVERLC in {95..98})"
+  },
+  "UDSVERTE": {
+    "Description": "Verbal Fluency: Phonemic Test - Total number of F-words and L-words repetition errors {0..30} (Blank if UDSVERLC in {95..98})"
+  },
+  "UDSVERTI": {
+    "Description": "Verbal Fluency: Phonemic Test - Number of non-F/L-words and rule violation errors {0..30} (Blank if UDSVERLC in {95..98})"
+  },
+  "COGSTAT": {
+    "Description": "Overall appraisal: Per the clinician (e.g., neuropsychologist, behavioral neurologist, or other suitably qualified clinician), based on the UDS neuropsychological examination, the subjects cognitive status is deemed",
+    "Levels": {
+      "1": "Better than normal for age",
+      "2": "Normal for age",
+      "3": "One or two test scores abnormal",
+      "4": "Three or more scores are abnormal or lower than expected",
+      "0": "Clinican unable to render opinion"
+    }
+  }
+}

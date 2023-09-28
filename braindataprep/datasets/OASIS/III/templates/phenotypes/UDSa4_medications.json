@@ -1,0 +1,16 @@
+{
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "ANYMEDS": {
+    "Description": "Is the subject currently taking any medications?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "DRUGID": {
+    "Description": "What is the Drug ID of the medication?"
+  }
+}

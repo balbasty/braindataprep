@@ -1,0 +1,20 @@
+{
+  "Name": "OASIS-II",
+  "BIDSVersion": "1.8.0",
+  "Authors": [
+    "Marcus, D",
+    "Buckner, R",
+    "Csernansky, J",
+    "Morris, J"
+  ],
+  "Funding": [
+    "P50 AG05681",
+    "P01 AG03991",
+    "P01 AG026276",
+    "R01 AG021910",
+    "P20 MH071616",
+    "U24 RR021382"
+  ],
+  "ReferencesAndLinks": ["https://doi.org/10.1162/jocn.2009.21407"],
+  "HowToAcknowledge": "See http://www.oasis-brains.org/#access"
+}
