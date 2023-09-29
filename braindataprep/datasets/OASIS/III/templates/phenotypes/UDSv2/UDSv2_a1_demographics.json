@@ -1,4 +1,8 @@
 {
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - A1: Subject Demographics",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
   "delay": {
     "Description": "Time to first visit",
     "Units": "days"
@@ -12,33 +16,29 @@
     "Levels": {
       "1": "To participate in a research study",
       "2": "To have a clinical evaluation",
-      "4": "Both (to participate in a research study and to have a clinical evaluation)",
+      "3": "Other",
       "9": "Unknown"
     }
   },
-  "REFERSC": {
+  "REASONX": {
+    "Description": "Other primary reason for coming to ADC - specify"
+  },
+  "REFER": {
     "Description": "Principal referral source",
     "Levels": {
-      "1": "Self-referral",
-      "2": "Non-professional contact (spouse/partner, relative, friend, coworker, etc.)",
-      "3": "ADC participant referral",
-      "4": "ADC clinician, staff, or investigator referral",
-      "5": "Nurse, doctor, or other health care provider",
-      "6": "Other research study clinician/staff/investigator (non-ADC; e.g., ADNI, Women's Health Initiative)",
+      "1": "Self/relative/friend",
+      "2": "Clinician",
+      "3": "ADC solicitation",
+      "4": "Non-ADC study",
+      "5": "Clinic sample",
+      "6": "Population sample",
+      "7": "Non-ADC media appeal (e.g. Alzheimer's Association)",
       "8": "Other",
       "9": "Unknown"
     }
   },
-  "LEARNED": {
-    "Description": "If the referral source was self-referral or a non-professional contact, how did the referral source learn of the ADC? (Blank if REFERSC no in {1, 2})",
-    "Levels": {
-      "1": "ADC advertisement (e.g., website, mailing, newspaper ad, community presentation)",
-      "2": "News article or TV program mentioning the ADC study",
-      "3": "Conference or community event (e.g., community memory walk)",
-      "4": "Another organizations's media appeal or website (e.g., Alzheimer's Association, clinicaltrials.gov)",
-      "8": "Other",
-      "9": "Unknown"
-    }
+  "REFERX": {
+    "Description": "Principal referral source, other - specify"
   },
   "PRESTAT": {
     "Description": "Presumed disease status at enrollment",
@@ -55,11 +55,13 @@
       "2": "Longitudinal follow-up planned"
     }
   },
-  "SOURCENW": {
+  "SOURCE": {
     "Description": "ADC enrollment type",
     "Levels": {
-      "1": "Primarily ADC-funded (Clinical Core, Satellite Core, or other ADC Core or project)",
-      "2": "Subject is supported primarily by a non-ADC study (e.g., R01, including non-ADC grants supporting the FTLD Module participation"
+      "1": "Clinical Core",
+      "2": "Satellite Core",
+      "3": "Other ADC Core/project",
+      "4": "Center-affiliated/non-ADC"
     }
   },
   "BIRTHMO": {
@@ -111,7 +113,7 @@
       "4": "Dominican",
       "5": "Central American",
       "6": "South American",
-      "50": "Other (specify)",
+      "50": "Other",
       "99": "Unknown"
     }
   },
@@ -126,7 +128,7 @@
       "3": "American Indian or Alaska Native",
       "4": "Native Hawaiian or Other Pacific Islander",
       "5": "Asian",
-      "50": "Other (specify)",
+      "50": "Other",
       "99": "Unknown"
     }
   },
@@ -142,6 +144,7 @@
       "4": "Native Hawaiian or Other Pacific Islander",
       "5": "Asian",
       "50": "Other (specify)",
+      "88": "None reported",
       "99": "Unknown"
     }
   },
@@ -157,6 +160,7 @@
       "4": "Native Hawaiian or Other Pacific Islander",
       "5": "Asian",
       "50": "Other (specify)",
+      "88": "None reported",
       "99": "Unknown"
     }
   },
@@ -203,35 +207,41 @@
       "18": "Master's degree",
       "19": "",
       "20": "Doctorate",
+      "21": "",
+      "22": "",
+      "23": "",
+      "24": "",
+      "25": "",
+      "26": "",
+      "27": "",
+      "28": "",
+      "29": "",
+      "30": "",
+      "31": "",
+      "32": "",
+      "33": "",
+      "34": "",
+      "35": "",
+      "36": "",
       "99": "Unknown"
     },
     "Units": "years"
   },
-  "MARISTAT": {
-    "Description": "Subject's current marital status",
-    "Levels": {
-      "1": "Married",
-      "2": "Widowed",
-      "3": "Divorced",
-      "4": "Separated",
-      "5": "Never married (or marriage was annulled)",
-      "6": "Living as married/domestic partner",
-      "9": "Unknown"
-    }
-  },
-  "LIVSITUA": {
+  "LIVSIT": {
     "Description": "What is the subject's living situation?",
     "Levels": {
       "1": "Lives alone",
-      "2": "Lives with one other person: a spouse or partner",
-      "3": "Lives with one other person: a relative, friend, or roommate",
-      "4": "Lives with caregiver who is not spouse/partner, relative, or friend",
-      "5": "Lives with a group (related or not related) in a private residence",
-      "6": "Lives in a group home (e.g., assisted living, nursing home, convent)",
+      "2": "Lives with spouse or partner",
+      "3": "Lives with relative or friend",
+      "4": "Lives with group",
+      "5": "Other",
       "9": "Unknown"
     }
   },
-  "INDEP": {
+  "LIVSITX": {
+    "Description": "Living situation, other - specify"
+  },
+  "INDEPEND": {
     "Description": "What is the subject's level of independence?",
     "Levels": {
       "1": "Able to live independently",
@@ -244,16 +254,36 @@
   "RESIDENC": {
     "Description": "What is the subject's primary type of residence?",
     "Levels": {
-      "1": "Single- or multi-family private residence (apartment, condo, house)",
-      "2": "Retirement community or independent group living",
-      "3": "Assisted living, adult family home, or boarding home",
-      "4": "Skilled nursing facility, nursing home, hospital, or hospice",
+      "1": "Single family residence",
+      "2": "Retirement community",
+      "3": "Assisted living/boarding home/adult family home",
+      "4": "Skilled nursing facility/nursing home",
+      "5": "Other",
       "9": "Unknow"
     }
+  },
+  "RESIDENX": {
+    "Description": "Type of residence, other - specify"
   },
   "ZIP": {
     "Description": "ZIP Code (first three digits) of subject's primary residence",
     "Unit": "006-999"
+  },
+  "MARISTAT": {
+    "Description": "Subject's current marital status",
+    "Levels": {
+      "1": "Married",
+      "2": "Widowed",
+      "3": "Divorced",
+      "4": "Separated",
+      "5": "Never married",
+      "6": "Living as married",
+      "8": "Other",
+      "9": "Unknown"
+    }
+  },
+  "MARISTAX": {
+    "Description": "Marital status, other - specify"
   },
   "HANDED": {
     "Description": "Is the subject left- or right-handed (for example, which hand would s/he normally use to write or throw a ball)?",

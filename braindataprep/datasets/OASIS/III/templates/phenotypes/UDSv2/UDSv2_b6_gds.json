@@ -1,0 +1,30 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - B6: Behavioral Assessment - GDS",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "NOGDS": {},
+  "SATIS": {},
+  "DROPACT": {},
+  "EMPTY": {},
+  "BORED": {},
+  "SPIRITS": {},
+  "AFRAID": {},
+  "HAPPY": {},
+  "HELPLESS": {},
+  "STAYHOME": {},
+  "MEMPROB": {},
+  "WONDRFUL": {},
+  "WRTHLESS": {},
+  "ENERGY": {},
+  "HOPELESS": {},
+  "GDS": {}
+}

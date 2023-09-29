@@ -1,0 +1,252 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - D2: Clinician-assessed Medical Conditions",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "CANCER": {
+    "Description": "Cancer (excluding non-melanoma skin cancer), primary or metastatic",
+    "Levels": {
+      "0": "No",
+      "1": "Yes, primary/non-metastatic",
+      "2": "Yes, metastatic",
+      "8": "Not assessed"
+    }
+  },
+  "CANCSITE": {
+    "Description": "Cancer primary site specification"
+  },
+  "DIABET": {
+    "Description": "Diabetes",
+    "Levels": {
+      "0": "No",
+      "1": "Yes, Type I",
+      "2": "Yes, Type II",
+      "3": "Yes, other type",
+      "9": "Not assessed"
+    }
+  },
+  "MYOINF": {
+    "Description": "Myocardial infarct",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "CONGHRT": {
+    "Description": "Congestive heart failure",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "AFIBRILL": {
+    "Description": "Atrial fibrillation",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "HYPERT": {
+    "Description": "Hypertension",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "ANGINA": {
+    "Description": "Angina",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "HYPCHOL": {
+    "Description": "Hypercholesterolemia",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "VB12DEF": {
+    "Description": "B12 deficiency",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "THYDIS": {
+    "Description": "Thyroid disease",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "ARTH": {
+    "Description": "Arthritis",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "ARTYPE": {
+    "Description": "Arthritis type",
+    "Levels": {
+      "1": "Rheumatoid",
+      "2": "Osteoarthritis",
+      "3": "Other",
+      "9": "Unknown"
+    }
+  },
+  "ARTYPEX": {
+    "Description": "Other arthritis type specification"
+  },
+  "ARTUPEX": {
+    "Description": "Arthritis region affected - upper extremity",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "ARTLOEX": {
+    "Description": "Arthritis region affected - lower extremity",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "ARTSPIN": {
+    "Description": "Arthritis region affected - spine",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "ARTUNKN": {
+    "Description": "Arthritis region affected - unknown",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "URINEINC": {
+    "Description": "Incontinence - urinary",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "BOLWINC": {
+    "Description": "Incontinence - bowel",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "SLEEPAP": {
+    "Description": "Sleep apnea",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "REMDIS": {
+    "Description": "REM sleep behavior disorder (RBD)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "HYPOSOM": {
+    "Description": "Hyposomnia/insomnia",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "SLEEPOTH": {
+    "Description": "Other sleep disorder",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "SLEEPOTX": {
+    "Description": "Other sleep disorder specification"
+  },
+  "ANGIOCP": {
+    "Description": "Carotid procedure: angioplasty, endarterectomy, or stent",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "ANGIOPCI": {
+    "Description": "Percutaneous coronary intervention: angioplasty and/or stent",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "PACEMAKE": {
+    "Description": "Procedure: pacemaker and/or defibrillator",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "HVALVE": {
+    "Description": "Procedure: heart valve replacement or repair",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "ANTIENC": {
+    "Description": "Antibody-mediated encephalopathy",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "Not assessed"
+    }
+  },
+  "ANTIENCX": {
+    "Description": "Antibody-mediated encephalopathy, specify"
+  },
+  "OTHCOND": {
+    "Description": "Other medical conditions or procedures not listed above",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "OTHCONDX": {
+    "Description": "Other medical conditions, specification"
+  }
+}

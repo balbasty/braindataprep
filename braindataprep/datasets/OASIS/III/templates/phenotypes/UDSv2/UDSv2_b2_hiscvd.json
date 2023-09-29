@@ -1,0 +1,128 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - B2: Evaluation Form - HIS and CVD",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "ABRUPT": {
+    "Description": "Abrupt onset (re: cognitive status)",
+    "Levels": {
+      "0": "Absent",
+      "2": "Present"
+    }
+  },
+  "STEPWISE": {
+    "Description": "Stepwise deterioration (re: cognitive status)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "SOMATIC": {
+    "Description": "Somatic complaints",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "EMOT": {
+    "Description": "Emotional incontinence",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HXHYPER": {
+    "Description": "History or presence of hypertension",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HXSTROKE": {
+    "Description": "History of stroke",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "FOCLSYM": {
+    "Description": "Focal neurological symptoms",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "FOCLSIGN": {
+    "Description": "Focal neurological signs",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HACHIN": {
+    "Description": "Hachinski Ischemic score {0..12}"
+  },
+  "CVDCOG": {
+    "Description": "Using your best judgment, do you believe that cerebrovascular disease (CVD) is contributing to the cognitive impairment?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "N/A"
+    }
+  },
+  "STROKCOG": {
+    "Description": "If there is a stroke, is there a temporal relationship between stroke and onset of cognitive impairment?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "N/A"
+    }
+  },
+  "CVDIMAG": {
+    "Description": "Is there imaging evidence which supports that CVD is contributing to the cognitive impairment?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "8": "N/A"
+    }
+  },
+  "CVDIMAG1": {
+    "Description": "If yes, was there imaging evidence of single strategic infarct? (Blank if CVDIMAG ≠ 1)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "CVDIMAG2": {
+    "Description": "If yes, was there imaging evidence of multiple infarcs? (Blank if CVDIMAG ≠ 1)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "CVDIMAG3": {
+    "Description": "If yes, was there imaging evidence of extensive white matter hyperintensity? (Blank if CVDIMAG ≠ 1)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "CVDIMAG4": {
+    "Description": "If yes, was there other imaging evidence? (Blank if CVDIMAG ≠ 1)",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "CVDIMAGX": {
+    "Description": "If yes, was there other imaging evidence - specify (Blank if CVDIMAG ≠ 1 or CVDIMAG4 = 0)"
+  }
+}

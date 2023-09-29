@@ -1,10 +1,14 @@
 {
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v3 - C2: Neuropsychological Battery Scores",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-3"
+  },
   "delay": {
-  "Description": "Time to first visit",
-  "Units": "days"
+    "Description": "Time to first visit",
+    "Units": "days"
   },
   "age": {
-    "Description": "Age of the participant",
+    "Description": "Age of the participant at visit",
     "Units": "years"
   },
   "MOCACOMP": {

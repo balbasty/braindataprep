@@ -11,5 +11,5 @@
   "age": {
     "Description": "Age of the participant",
     "Units": "years"
-  },
+  }
 }

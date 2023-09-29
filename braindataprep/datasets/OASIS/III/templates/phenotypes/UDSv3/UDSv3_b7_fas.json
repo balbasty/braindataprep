@@ -1,0 +1,24 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v3 - B7: Functional Assessment — NACC Functional Assessment Scale",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-3"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "BILLS": {},
+  "TAXES": {},
+  "SHOPPING": {},
+  "GAMES": {},
+  "STOVE": {},
+  "MEALPREP": {},
+  "EVENTS": {},
+  "PAYATTN": {},
+  "REMDATES": {},
+  "TRAVEL": {}
+}

@@ -1,0 +1,133 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - E1: Imaging / Labs",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "CTFLM": {
+    "Description": "Computed tomography, film",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "CTDIG": {
+    "Description": "Computed tomography, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRI1FLM": {
+    "Description": "Magnetic resonance imaging - Clinical study, film",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRI1DIG": {
+    "Description": "Magnetic resonance imaging - Clinical study, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRI2FLM": {
+    "Description": "Magnetic resonance imaging - Research study/structural, film",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRI2DIG": {
+    "Description": "Magnetic resonance imaging - Research study/structural, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRI3FLM": {
+    "Description": "Magnetic resonance imaging - Research study/functional, film",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRI3DIG": {
+    "Description": "Magnetic resonance imaging - Research study/functional, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRISPFLM": {
+    "Description": "Magnetic resonance spectroscopy, film",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MRISPDIG": {
+    "Description": "Magnetic resonance spectroscopy, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "SPECTFLM": {
+    "Description": "SPECT, film",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "SPECTDIG": {
+    "Description": "SPECT, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "PETDIG": {
+    "Description": "PET, digital image",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "DNA": {
+    "Description": "DNA",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "CSFANTEM": {
+    "Description": "Cerebrospinal fluid - ante-mortem",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "SERUM": {
+    "Description": "Serum/plasma",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "APOE": {
+    "Description": "APOE genotype collected",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  }
+}

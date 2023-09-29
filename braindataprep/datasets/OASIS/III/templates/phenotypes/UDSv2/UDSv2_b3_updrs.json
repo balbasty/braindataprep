@@ -1,0 +1,399 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - B3: Evaluation Form - UPDRS",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "PDNORMAL": {
+    "Description": "UPDRS normal",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "SPEECH": {
+    "Description": "Speech",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Slight loss of expression, diction and/or volume.",
+      "2": "Monotone, slurred but understandable; moderately impaired.",
+      "3": "Marked impairment, difficult to understand.",
+      "4": "Unintelligible.",
+      "8": "Untestable"
+    }
+  },
+  "SPEECHX": {
+    "Description": "Speech, untestable - specify reason"
+  },
+  "FACEXP": {
+    "Description": "Facial expression",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Minimal hypomimia, could be normal \"poker face\".",
+      "2": "Slight but definitely abnormal diminution of facial expression.",
+      "3": "Moderate hypomimia; lips parted some of the time.",
+      "4": "Masked or fixed facies with severe or complete loss of facial expression; lips parted 1/4 inch or more.",
+      "8": "Untestable"
+    }
+  },
+  "FACEXPX": {
+    "Description": "Facial expression, untestable - specify reason"
+  },
+  "TRESTFAC": {
+    "Description": "Tremor at rest - Face, lips, chin",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight and infrequently present.",
+      "2": "Mild in amplitude and persistent; or moderate in amplitude, but only intermittently present.",
+      "3": "Moderate in amplitude and present most of the time.",
+      "4": "Marked in amplitude and present most of the time.",
+      "8": "Untestable"
+    }
+  },
+  "TRESTFAX": {
+    "Description": "Tremor at rest - Face, lips, chin, untestable - specify reason"
+  },
+  "TRESTRHD": {
+    "Description": "Tremor at rest - Right hand",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight and infrequently present.",
+      "2": "Mild in amplitude and persistent; or moderate in amplitude, but only intermittently present.",
+      "3": "Moderate in amplitude and present most of the time.",
+      "4": "Marked in amplitude and present most of the time.",
+      "8": "Untestable"
+    }
+  },
+  "TRESTRHX": {
+    "Description": "Tremor at rest - Right hand,, untestable - specify reason"
+  },
+  "TRESTLHD": {
+    "Description": "Tremor at rest - Left hand",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight and infrequently present.",
+      "2": "Mild in amplitude and persistent; or moderate in amplitude, but only intermittently present.",
+      "3": "Moderate in amplitude and present most of the time.",
+      "4": "Marked in amplitude and present most of the time.",
+      "8": "Untestable"
+    }
+  },
+  "TRESTLHX": {
+    "Description": "Tremor at rest - Left hand,, untestable - specify reason"
+  },
+  "TRESTRFT": {
+    "Description": "Tremor at rest - Right foot",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight and infrequently present.",
+      "2": "Mild in amplitude and persistent; or moderate in amplitude, but only intermittently present.",
+      "3": "Moderate in amplitude and present most of the time.",
+      "4": "Marked in amplitude and present most of the time.",
+      "8": "Untestable"
+    }
+  },
+  "TRESTRFX": {
+    "Description": "Tremor at rest - Right foot,, untestable - specify reason"
+  },
+  "TRESTLFT": {
+    "Description": "Tremor at rest - Left foot",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight and infrequently present.",
+      "2": "Mild in amplitude and persistent; or moderate in amplitude, but only intermittently present.",
+      "3": "Moderate in amplitude and present most of the time.",
+      "4": "Marked in amplitude and present most of the time.",
+      "8": "Untestable"
+    }
+  },
+  "TRESTLFX": {
+    "Description": "Tremor at rest - Left foot,, untestable - specify reason"
+  },
+  "TRACTRHD": {
+    "Description": "Action or postural tremor of hands - Right hand",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight; present with action.",
+      "2": "Moderate in amplitude, present with action.",
+      "3": "Moderate in amplitude with posture holding as well as action.",
+      "4": "Marked in amplitude; interferes with feeding.",
+      "8": "Untestable"
+    }
+  },
+  "TRACTRHX": {
+    "Description": "Action or postural tremor of hands - Right hand, untestable - specify reason"
+  },
+  "TRACTLHD": {
+    "Description": "Action or postural tremor of hands - Left hand",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight; present with action.",
+      "2": "Moderate in amplitude, present with action.",
+      "3": "Moderate in amplitude with posture holding as well as action.",
+      "4": "Marked in amplitude; interferes with feeding.",
+      "8": "Untestable"
+    }
+  },
+  "TRACTLHX": {
+    "Description": "Action or postural tremor of hands - Left hand, untestable - specify reason"
+  },
+  "RIGDNECK": {
+    "Description": "Rigidity - Neck (judged on passive movement of major joints with patient relaxed in sitting position; cogwheeling to be ignored)",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight or detectable only when activated by mirror or other movements.",
+      "2": "Mild to moderate.",
+      "3": "Marked, but full range of motion easily achieved.",
+      "4": "Severe; range of motion achieved with difficulty.",
+      "8": "Untestable"
+    }
+  },
+  "RIGDNEX": {
+    "Description": "Rigidity - Neck, untestable - specify reason"
+  },
+  "RIGDUPRT": {
+    "Description": "Rigidity - Right upper extremity (judged on passive movement of major joints with patient relaxed in sitting position; cogwheeling to be ignored)",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight or detectable only when activated by mirror or other movements.",
+      "2": "Mild to moderate.",
+      "3": "Marked, but full range of motion easily achieved.",
+      "4": "Severe; range of motion achieved with difficulty.",
+      "8": "Untestable"
+    }
+  },
+  "RIGDUPRX": {
+    "Description": "Rigidity - Upper right, untestable - specify reason"
+  },
+  "RIGDUPLF": {
+    "Description": "Rigidity - Left upper extremity (judged on passive movement of major joints with patient relaxed in sitting position; cogwheeling to be ignored)",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight or detectable only when activated by mirror or other movements.",
+      "2": "Mild to moderate.",
+      "3": "Marked, but full range of motion easily achieved.",
+      "4": "Severe; range of motion achieved with difficulty.",
+      "8": "Untestable"
+    }
+  },
+  "RIGDUPLX": {
+    "Description": "Rigidity - Upper left, untestable - specify reason"
+  },
+  "RIGDLORT": {
+    "Description": "Rigidity - Right lower extremity (judged on passive movement of major joints with patient relaxed in sitting position; cogwheeling to be ignored)",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight or detectable only when activated by mirror or other movements.",
+      "2": "Mild to moderate.",
+      "3": "Marked, but full range of motion easily achieved.",
+      "4": "Severe; range of motion achieved with difficulty.",
+      "8": "Untestable"
+    }
+  },
+  "RIGDLORX": {
+    "Description": "Rigidity - Lower right, untestable - specify reason"
+  },
+  "RIGDLOLF": {
+    "Description": "Rigidity - Left lower extremity (judged on passive movement of major joints with patient relaxed in sitting position; cogwheeling to be ignored)",
+    "Levels": {
+      "0": "Absent.",
+      "1": "Slight or detectable only when activated by mirror or other movements.",
+      "2": "Mild to moderate.",
+      "3": "Marked, but full range of motion easily achieved.",
+      "4": "Severe; range of motion achieved with difficulty.",
+      "8": "Untestable"
+    }
+  },
+  "RIGDLOLX": {
+    "Description": "Rigidity - Lower left, untestable - specify reason"
+  },
+  "TAPSRT": {
+    "Description": "Finger taps - Right hand (patient taps thumb with index finger in rapid succession)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "TAPSRTX": {
+    "Description": "Finger taps - Right hand, untestable - specify reason"
+  },
+  "TAPSLF": {
+    "Description": "Finger taps - Left hand (patient taps thumb with index finger in rapid succession)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "TAPSLFX": {
+    "Description": "Finger taps - Left hand, untestable - specify reason"
+  },
+  "HANDMOVR": {
+    "Description": "Hand movements - Right hand (patient opens and closes hands in rapid succession)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "HANDMVRX": {
+    "Description": "Hand movements - Right hand, untestable - specify reason"
+  },
+  "HANDMOVL": {
+    "Description": "Hand movements - Left hand (patient opens and closes hands in rapid succession)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "HANDMVLX": {
+    "Description": "Hand movements - Right hand, untestable - specify reason"
+  },
+  "HANDALTR": {
+    "Description": "Rapid alternating movements of hands - Right hand (pronation-supination movements of hands, vertically and horizontally, with as large an amplitude as possible, both hands simultaneously)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "HANDATRX": {
+    "Description": "Alternating movement - Right hand, untestable - specify reason"
+  },
+  "HANDALTL": {
+    "Description": "Rapid alternating movements of hands - Left hand (pronation-supination movements of hands, vertically and horizontally, with as large an amplitude as possible, both hands simultaneously)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "HANDATLX": {
+    "Description": "Alternating movement - Left hand, untestable - specify reason"
+  },
+  "LEGRT": {
+    "Description": "Leg agility - Right leg (patient taps heel on the ground in rapid succession, picking up entire leg; amplitude should be at least 3 inches)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "LEGRTX": {
+    "Description": "Leg agility - Right leg, untestable - specify reason"
+  },
+  "LEGLF": {
+    "Description": "Leg agility - Left leg (patient taps heel on the ground in rapid succession, picking up entire leg; amplitude should be at least 3 inches)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Mild slowing and/or reduction in amplitude.",
+      "2": "Moderately impaired; definite and early fatiguing; may have occasional arrests in movement.",
+      "3": "Severely impaired; frequent hesitation in initiating movements or arrests in ongoing movement.",
+      "4": "Can barely perform the task.",
+      "8": "Untestable"
+    }
+  },
+  "LEGLFX": {
+    "Description": "Leg agility - Left leg, untestable - specify reason"
+  },
+  "ARISING": {
+    "Description": "Arising from chair (patient attempts to rise from a straight-backed chair, with arms folded across chest)",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Slow; or may need more than one attempt.",
+      "2": "Pushes self up from arms of seat.",
+      "3": "Tends to fall back and may have to try more than one time, but can get up without help.",
+      "4": "Unable to arise without help.",
+      "8": "Untestable"
+    }
+  },
+  "ARISINGX": {
+    "Description": "Arising from chair, untestable - specify reason"
+  },
+  "POSTURE": {
+    "Description": "Posture",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Not quite erect, slightly stooped posture; could be normal for older person.",
+      "2": "Moderately stooped posture, definitely abnormal; can be slightly leaning to one side.",
+      "3": "Severely stooped posture with kyphosis; can be moderately leaning to one side.",
+      "4": "Marked flexion with extreme abnormality of posture.",
+      "8": "Untestable"
+    }
+  },
+  "POSTUREX": {
+    "Description": "Posture, untestable - specify reason"
+  },
+  "GAIT": {
+    "Description": "Gait",
+    "Levels": {
+      "0": "Normal.",
+      "1": "Walks slowly; may shuffle with short steps, but no festination (hastening steps) or propulsion.",
+      "2": "Walks with difficulty, but requires little or no assistance; may have some festination, short steps, or propulsion.",
+      "3": "Severe disturbance of gait requiring assistance.",
+      "4": "Cannot walk at all, even with assistance.",
+      "8": "Untestable"
+    }
+  },
+  "GAITX": {
+    "Description": "Gait, untestable - specify reason"
+  },
+  "POSSTAB": {
+    "Description": "Posture stability (response to sudden, strong posterior displacement produced by pull on shoulders while patient erect with eyes open and feet slightly apart; patient is prepared)",
+    "Levels": {
+      "0": "Normal erect.",
+      "1": "Retropulsion, but recovers unaided.",
+      "2": "Absence of postural response; would fall if not caught by examiner.",
+      "3": "Very unstable, tends to lose balance spontaneously.",
+      "4": "Unable to stand without assistance.",
+      "8": "Untestable"
+    }
+  },
+  "POSSTABX": {
+    "Description": "Posture stability, untestable - specify reason"
+  },
+  "BRADYKIN": {
+    "Description": "Body bradykinesia and hypokinesia (combining slowness, hesitancy, decreased arm swing, small amplitude, and poverty of movement in general)",
+    "Levels": {
+      "0": "None.",
+      "1": "Minimal slowness, giving movement a deliberate character; could be normal for some persons; possibly reduced amplitude.",
+      "2": "Mild degree of slowness and poverty of movement which is definitely abnormal. Alternatively, some reduced amplitude.",
+      "3": "Moderate slowness, poverty or small amplitude of movement.",
+      "4": "Marked slowness, poverty or small amplitude of movement.",
+      "8": "Untestable"
+    }
+  },
+  "BRADYKIX": {
+    "Description": "Body bradykinesia and hypokinesia, untestable - specify reason"
+  }
+}

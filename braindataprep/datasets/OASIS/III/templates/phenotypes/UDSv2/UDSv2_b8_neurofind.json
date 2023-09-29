@@ -1,0 +1,46 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - B8: Evaluation - Physical / Neurological Exam Findings",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "NORMAL": {
+    "Description": "Exam findings normal - Are all findings unremarkable (normal or normal for age)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "FOCLDEF": {
+    "Description": "Focal deficits - Are focal deficits present indicative of central nervous system disorder?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "GAITDIS": {
+    "Description": "Gait disorder - Is gait disorder present indicative of central nervous system disorder?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "EYEMOVE": {
+    "Description": "Eye movement abnormalities - Are there eye movement abnormalities present indicative of central nervous system disorder?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  }
+}

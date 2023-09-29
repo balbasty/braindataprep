@@ -1,0 +1,233 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - A3: Subject Family History",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "MOMYOB": {
+      "Description": "Mother - year of birth",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "MOMLIV": {
+      "Description": "Is subject's mother still living?r",
+      "Levels": {
+        "0": "No",
+        "1": "Yes",
+        "9": "Unknown"
+      }
+  },
+  "MOMYOD": {
+      "Description": "Mother - year of death (Blank if MOMLIV ≠ 0)",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "MOMDEM": {
+    "Description": "Does/did subject's mother have dementia, as indicated by symptoms, history or diagnosis?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "MOMONSET": {
+    "Description": "Mother - age of onset (Blank if MOMDEM ≠ 1)",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "DADYOB": {
+      "Description": "Father - year of birth",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "DADLIV": {
+      "Description": "Is subject's father still living?r",
+      "Levels": {
+        "0": "No",
+        "1": "Yes",
+        "9": "Unknown"
+      }
+  },
+  "DADYOD": {
+      "Description": "Father - year of death (Blank if DADLIV ≠ 0)",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "DADDEM": {
+    "Description": "Does/did subject's father have dementia, as indicated by symptoms, history or diagnosis?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "DADONSET": {
+    "Description": "Father - age of onset (Blank if DADDEM ≠ 1)",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "TWIN": {
+    "Description": "Is the subject a twin?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "TWINTYPE": {
+    "Description": "If the subject is a twin, indicate type (Blank if TWIN ≠ 1)",
+    "Levels": {
+      "1": "Monozygotic (i.e., identical)",
+      "2": "Dizygotic (i.e., fraternal)",
+      "9": "Unknown"
+    }
+  },
+  "SIBS": {
+    "Description": "Number of full siblings?",
+    "Levels": {
+      "77": "Adopted, unknown"
+    }
+  },
+  "SIB{d}YOB": {
+      "Description": "Sibling {d} - year of birth",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "SIB{d}LIV": {
+      "Description": "Is Sibling {d} still living?r",
+      "Levels": {
+        "0": "No",
+        "1": "Yes",
+        "9": "Unknown"
+      }
+  },
+  "SIB{d}YOD": {
+      "Description": "Sibling {d} - year of death (Blank if SIB{d}LIV ≠ 0)",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "SIB{d}DEM": {
+    "Description": "Does/did Sibling {d} have dementia, as indicated by symptoms, history or diagnosis?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "SIB{d}ONS": {
+    "Description": "Sibling {d} - age of onset (Blank if SIB{d}MEM ≠ 1)",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "KIDS": {
+    "Description": "Number of biological children?",
+    "Levels": {
+      "99": "Unknown"
+    }
+  },
+  "KID{d}YOB": {
+      "Description": "Child {d} - year of birth",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "KID{d}LIV": {
+      "Description": "Is Child {d} still living?r",
+      "Levels": {
+        "0": "No",
+        "1": "Yes",
+        "9": "Unknown"
+      }
+  },
+  "KID{d}YOD": {
+      "Description": "Child {d} - year of death (Blank if SIB{d}LIV ≠ 0)",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "KID{d}DEM": {
+    "Description": "Does/did Child {d} have dementia, as indicated by symptoms, history or diagnosis?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "KID{d}ONS": {
+    "Description": "Child {d} - age of onset (Blank if SIB{d}MEM ≠ 1)",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "RELSDEM": {
+    "Description": "Number of other demented (as defined on form) blood relatives (cousins, aunts, uncles, grandparents, half siblings), as indicated by symptoms, history or diagnosis.",
+    "Levels": {
+      "99": "Unknown"
+    }
+  },
+  "REL{d}YOB": {
+      "Description": "Relative {d} - year of birth",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "REL{d}LIV": {
+      "Description": "Is Relative {d} still living?r",
+      "Levels": {
+        "0": "No",
+        "1": "Yes",
+        "9": "Unknown"
+      }
+  },
+  "REL{d}YOD": {
+      "Description": "Relative {d} - year of death (Blank if SIB{d}LIV ≠ 0)",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "REL{d}DEM": {
+    "Description": "Does/did Relative {d} have dementia, as indicated by symptoms, history or diagnosis?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "REL{d}ONS": {
+    "Description": "Relative {d} - age of onset (Blank if SIB{d}MEM ≠ 1)",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  }
+}

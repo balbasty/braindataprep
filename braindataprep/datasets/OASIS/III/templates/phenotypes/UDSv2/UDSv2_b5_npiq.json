@@ -1,0 +1,39 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - B5: Behavioral Assessment - NPI-Q",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "NPIQINF": {},
+  "DEL": {},
+  "DELSEV": {},
+  "HALL": {},
+  "HALLSEV": {},
+  "AGIT": {},
+  "AGITSEV": {},
+  "DEPD": {},
+  "DEPDSEV": {},
+  "ANX": {},
+  "ANXSEV": {},
+  "ELAT": {},
+  "ELATSEV": {},
+  "APA": {},
+  "APASEV": {},
+  "DISN": {},
+  "DISNSEV": {},
+  "IRR": {},
+  "IRRSEV": {},
+  "MOT": {},
+  "MOTSEV": {},
+  "NITE": {},
+  "NITESEV": {},
+  "APP": {},
+  "APPSEV": {}
+}

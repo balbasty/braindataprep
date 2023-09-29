@@ -1,10 +1,18 @@
 {
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - B4: Global Staging - CDR® Dementia Staging Instrument Plus NACC FTLD Behavior & Language Domains (CDR® Plus NACC FTLD)",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
   "delay": {
     "Description": "Time to first visit",
     "Units": "days"
   },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
   "MEMORY": {
-    "Description": "MEMORY",
+    "Description": "Memory",
     "Levels": {
       "0.0": "No impairment",
       "0.5": "Questionable impairment",
@@ -14,7 +22,7 @@
     }
   },
   "ORIENT": {
-    "Description": "ORIENTATION",
+    "Description": "Orientation",
     "Levels": {
       "0.0": "No impairment",
       "0.5": "Questionable impairment",
@@ -24,7 +32,7 @@
     }
   },
   "JUDGMENT": {
-    "Description": "JUDGMENT AND PROBLEM-SOLVING",
+    "Description": "Judgment & problem solving",
     "Levels": {
       "0.0": "No impairment",
       "0.5": "Questionable impairment",
@@ -34,7 +42,7 @@
     }
   },
   "COMMUN": {
-    "Description": "COMMUNITY AFFAIRS",
+    "Description": "Community Affairs",
     "Levels": {
       "0.0": "No impairment",
       "0.5": "Questionable impairment",
@@ -44,7 +52,7 @@
     }
   },
   "HOMEHOBB": {
-    "Description": "HOME AND HOBBIES",
+    "Description": "Home & hobbies",
     "Levels": {
       "0.0": "No impairment",
       "0.5": "Questionable impairment",
@@ -54,7 +62,7 @@
     }
   },
   "PERSCARE": {
-    "Description": "PERSONAL CARE",
+    "Description": "Personal Care",
     "Levels": {
       "0.0": "No impairment",
       "1.0": "Mild impairment",
@@ -63,7 +71,7 @@
     }
   },
   "CDRSUM": {
-    "Description": "CDR SUM OF BOXES",
+    "Description": "Standard CDR sum of boxes",
     "Levels": {
       "00.0": "",
       "00.5": "",
@@ -103,7 +111,7 @@
     }
   },
   "CDRGLOB": {
-    "Description": "GLOBAL CDR",
+    "Description": "Global CDR",
     "Levels": {
       "0.0": "No impairment",
       "0.5": "Questionable impairment",

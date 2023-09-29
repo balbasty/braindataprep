@@ -1,0 +1,24 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - A4: Subject Medications",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "ANYMEDS": {
+    "Description": "Is the subject currently taking any medications?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "DRUGID": {
+    "Description": "What is the Drug ID of the medication?"
+  }
+}

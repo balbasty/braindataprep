@@ -1,7 +1,15 @@
 {
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v3 - D1: Clinician Diagnosis",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-3"
+  },
   "delay": {
     "Description": "Time to first visit",
     "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
   },
   "DXMETHOD": {
     "Description": "Diagnosis method — Responses in this form are based on diagnosis by:",
@@ -499,66 +507,447 @@
       "3": "Non-contributing"
     }
   },
-  "PREVSTK": {},
-  "STROKDEC": {},
-  "STKIMAG": {},
-  "INFNETW": {},
-  "INFWMH": {},
-  "ESSTREM": {},
-  "ESSTREIF": {},
-  "DOWNS": {},
-  "DOWNSIF": {},
-  "HUNT": {},
-  "HUNTIF": {},
-  "PRION": {},
-  "PRIONIF": {},
-  "BRNINJ": {},
-  "BRNINJIF": {},
-  "BRNINCTE": {},
-  "HYCEPH": {},
-  "HYCEPHIF": {},
-  "EPILEP": {},
-  "EPILEPIF": {},
-  "NEOP": {},
-  "NEOPIF": {},
-  "NEOPSTAT": {},
-  "HIV": {},
-  "HIVIF": {},
-  "OTHCOG": {},
-  "OTHCOGIF": {},
-  "OTHCOGX": {},
-  "DEP": {},
-  "DEPIF": {},
-  "DEPTREAT": {},
-  "BIPOLDX": {},
-  "BIPOLDIF": {},
-  "SCHIZOP": {},
-  "SCHIZOIF": {},
-  "ANXIET": {},
-  "ANXIETIF": {},
-  "DELIR": {},
-  "DELIRIF": {},
-  "PTSDDX": {},
-  "PTSDDXIF": {},
-  "OTHPSY": {},
-  "OTHPSYIF": {},
-  "OTHPSYX": {},
-  "ALCDEM": {},
-  "ALCDEMIF": {},
-  "ALCABUSE": {},
-  "IMPSUB": {},
-  "IMPSUBIF": {},
-  "DYSILL": {},
-  "DYSILLIF": {},
-  "MEDS": {},
-  "MEDSIF": {},
-  "COGOTH": {},
-  "COGOTHIF": {},
-  "COGOTHX": {},
-  "COGOTH2": {},
-  "COGOTH2F": {},
-  "COGOTH2X": {},
-  "COGOTH3": {},
-  "COGOTH3F": {},
-  "COGOTH3X": {}
+  "PREVSTK": {
+    "Description": "Previous symptomatic stroke?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "STROKDEC": {
+    "Description": "Temporal relationship between stroke and cognitive decline?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "STKIMAG": {
+    "Description": "Confirmation of stroke by neuroimaging?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown, no relevant imaging data available"
+    }
+  },
+  "INFNETW": {
+    "Description": "Is there imaging evidence of cystic infarction in cognitive network(s)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown, no relevant imaging data available"
+    }
+  },
+  "INFWMH": {
+    "Description": "Is there imaging evidence of cystic infarction, imaging evidence of extensive WMH (CHS grade 7-8), and impairment in executive function?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown, no relevant imaging data available"
+    }
+  },
+  "ESSTREM": {
+    "Description": "Essential tremor",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "ESSTREIF": {
+    "Description": "Essential tremor, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DOWNS": {
+    "Description": "Down syndrome",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DOWNSIF": {
+    "Description": "Down syndrome, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "HUNT": {
+    "Description": "Huntington's disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HUNTIF": {
+    "Description": "Huntington's disease, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "PRION": {
+    "Description": "Prion disease (CJD, other)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PRIONIF": {
+    "Description": "Prion disease (CJD, other), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "BRNINJ": {
+    "Description": "Traumatic brain injury",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "BRNINJIF": {
+    "Description": "Traumatic brain injury, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "BRNINCTE": {
+    "Description": "If Present, does the subject have symptoms consistent with chronic traumatic encephalopathy?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "HYCEPH": {
+    "Description": "Normal-pressure hydrocephalus",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HYCEPHIF": {
+    "Description": "Normal-pressure hydrocephalus, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "EPILEP": {
+    "Description": "Epilepsy",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "EPILEPIF": {
+    "Description": "Epilepsy, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "NEOP": {
+    "Description": "CNS neoplasm",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "NEOPIF": {
+    "Description": "CNS neoplasm, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "NEOPSTAT": {
+    "Description": "CNS neoplasm, benign or malignant?",
+    "Levels": {
+      "1": "Benign",
+      "2": "Malignant"
+    }
+  },
+  "HIV": {
+    "Description": "Human immunodeficiency virus (HIV)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HIVIF": {
+    "Description": "Human immunodeficiency virus (HIV), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "OTHCOG": {
+    "Description": "Cognitive impairment due to other neurologic, genetic, or infectious conditions not listed above",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "OTHCOGIF": {
+    "Description": "Cognitive impairment due to other neurologic, genetic, or infectious conditions not listed above, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "OTHCOGX": {
+    "Description": "Cognitive impairment due to other neurologic, genetic, or infectious conditions not listed above - if Present, specify"
+  },
+  "DEP": {
+    "Description": "Active depression",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DEPIF": {
+    "Description": "Active depression, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DEPTREAT": {
+    "Description": "Active depression - if Present, select one",
+    "Levels": {
+      "0": "Untreated",
+      "1": "Treated with medication and/or counseling"
+    }
+  },
+  "BIPOLDX": {
+    "Description": "Bipolar disorder",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "BIPOLDIF": {
+    "Description": "Bipolar disorder, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "SCHIZOP": {
+    "Description": "Schizophrenia or other psychosis",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "SCHIZOIF": {
+    "Description": "Schizophrenia or other psychosis, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "ANXIET": {
+    "Description": "Anxiety disorder",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "ANXIETIF": {
+    "Description": "Anxiety disorder, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DELIR": {
+    "Description": "Delirium",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DELIRIF": {
+    "Description": "Delirium, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "PTSDDX": {
+    "Description": "Post-traumatic stress disorder (PTSD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PTSDDXIF": {
+    "Description": "Post-traumatic stress disorder (PTSD), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "OTHPSY": {
+    "Description": "Other psychiatric disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "OTHPSYIF": {
+    "Description": "Other psychiatric disease, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "OTHPSYX": {
+    "Description": "Other psychiatric disease - if Present, specify"
+  },
+  "ALCDEM": {
+    "Description": "Cognitive impairment due to alcohol abuse",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "ALCDEMIF": {
+    "Description": "Cognitive impairment due to alcohol abuse, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "ALCABUSE": {
+    "Description": "Current alcohol abuse:",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "IMPSUB": {
+    "Description": "Cognitive impairment due to other substance abuse",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "IMPSUBIF": {
+    "Description": "Cognitive impairment due to other substance abuse, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DYSILL": {
+    "Description": "Cognitive impairment due to systemic disease/medical illness (as indicated on Form D2)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DYSILLIF": {
+    "Description": "Cognitive impairment due to systemic disease/medical illness, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "MEDS": {
+    "Description": "Cognitive impairment due to medications",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MEDSIF": {
+    "Description": "Cognitive impairment due to medications, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTH": {
+    "Description": "Cognitive impairment NOS",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "COGOTHIF": {
+    "Description": "Cognitive impairment NOS, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTHX": {
+    "Description": "Cognitive impairment NOS - if Present, specify"
+  },
+  "COGOTH2": {
+    "Description": "Cognitive impairment NOS",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "COGOTH2F": {
+    "Description": "Cognitive impairment NOS, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTH2X": {
+    "Description": "Cognitive impairment NOS - if Present, specify"
+  },
+  "COGOTH3": {
+    "Description": "Cognitive impairment NOS",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "COGOTH3F": {
+    "Description": "Cognitive impairment NOS, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTH3X": {
+    "Description": "Cognitive impairment NOS - if Present, specify"
+  }
 }

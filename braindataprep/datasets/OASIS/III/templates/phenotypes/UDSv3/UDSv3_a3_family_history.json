@@ -1,7 +1,15 @@
 {
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v3 - A3: Subject Family History",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-3"
+  },
   "delay": {
     "Description": "Time to first visit",
     "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
   },
   "AFFFAMM": {
     "Description": "Are there affected first-degree relatives (biological parents, full siblings, or biological children)?",
@@ -91,7 +99,7 @@
     "Description": "If Yes, Other (specify) (Blank if FOTHMUT in {0, 9} or FOTHMUSO ≠ 8)"
   },
   "MOMMOB": {
-    "Description": "Father - birth month",
+    "Description": "Mother - birth month",
     "Levels": {
       "1": "January",
       "2": "February",
@@ -109,14 +117,14 @@
     }
   },
   "MOMYOB": {
-      "Description": "Father - birth year",
+      "Description": "Mother - birth year",
       "Units": "years",
       "Levels": {
         "9999": "Unknown"
       }
   },
   "MOMDAGE": {
-      "Description": "Father - age at death",
+      "Description": "Mother - age at death",
       "Units": "years",
       "Levels": {
         "888": "N/A",
@@ -124,7 +132,7 @@
       }
   },
   "MOMNEUR": {
-    "Description": "Father - neurological problem",
+    "Description": "Mother - neurological problem",
     "Levels": {
       "1": "Cognitive impairment/behavior change",
       "2": "Parkinsonism",
@@ -136,13 +144,13 @@
     }
   },
   "MOMPRDX": {
-    "Description": "Father - primary diagnosis (40-490)",
+    "Description": "Mother - primary diagnosis (40-490)",
     "Levels": {
       "999": "Specific diagnosis unknown"
     }
   },
   "MOMMOE": {
-    "Description": "Father - method of evaluation (Blank if MOMNEUR in {8, 9})",
+    "Description": "Mother - method of evaluation (Blank if MOMNEUR in {8, 9})",
     "Levels": {
       "1": "Autopsy",
       "2": "Examination",
@@ -154,7 +162,7 @@
     }
   },
   "MOMAGEO": {
-    "Description": "Father - age of onset (Blank if MOMNEUR in {8, 9})",
+    "Description": "Mother - age of onset (Blank if MOMNEUR in {8, 9})",
     "Units": "years",
     "Levels": {
       "999": "Unknown"

@@ -1,0 +1,186 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v3 - A2: Co-participant Demographics",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-3"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "INBIRTHMO": {
+    "Description": "Co-participant's month of birth",
+    "Levels": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December",
+      "99": "Unknown"
+    }
+  },
+  "INBIRTHYR": {
+      "Description": "Co-participant's year of birth",
+      "Units": "years",
+      "Levels": {
+        "9999": "Unknown"
+      }
+  },
+  "INSEX": {
+    "Description": "Co-participant's sex",
+    "Levels": {
+      "1": "Male",
+      "2": "Female"
+    }
+  },
+  "INHISP": {
+    "Description": "Does the co-participant report being of Hispanic/Latino ethnicity (i.e., having origins from a mainly Spanish-speaking Latin American country), regardless of race?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes",
+      "9": "Unknown"
+    }
+  },
+  "INHISPOR": {
+    "Description": "If yes, what are the co-participant's reported origins? (Blank if HISPANIC ≠ 1)",
+    "Levels": {
+      "1": "Mexican, Chicano, or Mexican-American",
+      "2": "Puerto Rican",
+      "3": "Cuban",
+      "4": "Dominican",
+      "5": "Central American",
+      "6": "South American",
+      "50": "Other (specify)",
+      "99": "Unknown"
+    }
+  },
+  "INHISPORX": {
+    "Description": "Other (specify) (Blank if HISPANIC ≠ 1 or HISPOR ≠ 50)"
+  },
+  "INRACE": {
+    "Description": "What does the co-participant report as his or her race?",
+    "Levels": {
+      "1": "White",
+      "2": "Black or African American",
+      "3": "American Indian or Alaska Native",
+      "4": "Native Hawaiian or Other Pacific Islander",
+      "5": "Asian",
+      "50": "Other (specify)",
+      "99": "Unknown"
+    }
+  },
+  "INRACEX": {
+    "Description": "Other (specify) (Blank if RACE ≠ 50)"
+  },
+  "INRACESC": {
+    "Description": "What additional race does co-participant report?",
+    "Levels": {
+      "1": "White",
+      "2": "Black or African American",
+      "3": "American Indian or Alaska Native",
+      "4": "Native Hawaiian or Other Pacific Islander",
+      "5": "Asian",
+      "50": "Other (specify)",
+      "99": "Unknown"
+    }
+  },
+  "INRACESCX": {
+    "Description": "Other (specify) (Blank if RACESC ≠ 50)"
+  },
+  "INRACETER": {
+    "Description": "What additional race, beyond those reported in RACE and RACESC, does co-participant report?",
+    "Levels": {
+      "1": "White",
+      "2": "Black or African American",
+      "3": "American Indian or Alaska Native",
+      "4": "Native Hawaiian or Other Pacific Islander",
+      "5": "Asian",
+      "50": "Other (specify)",
+      "99": "Unknown"
+    }
+  },
+  "INRACETERX": {
+    "Description": "Other (specify) (Blank if RACETER ≠ 50)"
+  },
+  "INEDUC": {
+    "Description": "Co-participant's years of education, use the codes below to report the level achieved; if an attempted level is not completed, enter the number of years completed",
+    "Levels": {
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "11": "",
+      "12": "High school or GED",
+      "13": "",
+      "14": "",
+      "15": "",
+      "16": "Bachelor's degree",
+      "17": "",
+      "18": "Master's degree",
+      "19": "",
+      "20": "Doctorate",
+      "99": "Unknown"
+    },
+    "Units": "years"
+  },
+  "INRELTO": {
+    "Description": "What is co-participant's relationship to subject?",
+    "Levels": {
+      "1": "Spouse, partner, or companion",
+      "2": "Child",
+      "3": "Sibling",
+      "4": "Other relative",
+      "5": "Friend, neighbor, or someone known through family,friends,work,or community",
+      "6": "Paid caregiver, health care provider, or clinician"
+    }
+  },
+  "INKNOWN": {
+    "Description": "How long has the co-participant known the subject?",
+    "Units": "years",
+    "Levels": {
+      "999": "Unknown"
+    }
+  },
+  "INLIVWTH": {
+    "Description": "Does the co-participant live with the subject?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "INVISITS": {
+    "Description": "If no, approximate frequency of in-person visits? (Blank if INLIVWTH = 1)",
+    "Levels": {
+      "1": "Daily",
+      "2": "At least 3 times per week",
+      "3": "Weekly",
+      "4": "At least 3 times per month",
+      "5": "Monthly",
+      "6": "Less than once a month"
+    }
+  },
+  "INRELY": {
+    "Description": "Is there a question about the co-participant's reliability?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  }
+}

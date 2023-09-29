@@ -1,0 +1,586 @@
+{
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - D1: Clinician Diagnosis - Cognitive Status and Dementia",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
+  "delay": {
+    "Description": "Time to first visit",
+    "Units": "days"
+  },
+  "age": {
+    "Description": "Age of the participant at visit",
+    "Units": "years"
+  },
+  "WHODIDDX": {
+    "Description": "Diagnosis method — Responses in this form are based on diagnosis by:",
+    "Levels": {
+      "1": "Diagnosis from single clinician",
+      "2": "Consensus diagnosis"
+    }
+  },
+  "NORMCOG": {
+    "Description": "Does the subject have normal cognition (no MCI, dementia, or other neurological condition resulting in cognitive impairment)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "DEMENTED": {
+    "Description": "Does the subject meet criteria for dementia (in accordance with standard criteria for dementia of the Alzheimer's type or for other non-Alzheimer's dementing disorders)?",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "AMNDEM": {
+    "Description": "Amnestic multidomain dementia syndrome",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MCIAMEM": {
+    "Description": "Amnestic MCI, single domain (aMCI SD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MCIAPLUS": {
+    "Description": "Amnestic MCI, multiple domains (aMCI MD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MCIAPLAN": {
+    "Description": "Amnestic MCI, multiple domains — Language",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIAPATT": {
+    "Description": "Amnestic MCI, multiple domains — Attention",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIAPEX": {
+    "Description": "Amnestic MCI, multiple domains — Executive",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIAPVIS": {
+    "Description": "Amnestic MCI, multiple domains — Visuospatial",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCINON1": {
+    "Description": "Non-amnestic MCI, single domain (naMCI SD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MCIN1LAN": {
+    "Description": "Non-amnestic MCI, single domain — Language",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIN1ATT": {
+    "Description": "Non-amnestic MCI, single domain — Attention",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIN1EX": {
+    "Description": "Non-amnestic MCI, single domain — Executive",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIN1VIS": {
+    "Description": "Non-amnestic MCI, single domain — Visuospatial",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCINON2": {
+    "Description": "Non-amnestic MCI, multiple domain (naMCI MD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MCIN2LAN": {
+    "Description": "Non-amnestic MCI, multiple domain — Language",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIN2ATT": {
+    "Description": "Non-amnestic MCI, multiple domain — Attention",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIN2EX": {
+    "Description": "Non-amnestic MCI, multiple domain — Executive",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "MCIN2VIS": {
+    "Description": "Non-amnestic MCI, multiple domain — Visuospatial",
+    "Levels": {
+      "0": "No",
+      "1": "Yes"
+    }
+  },
+  "IMPNOMCI": {
+    "Description": "Cognitively impaired, not MCI",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PROBAD": {
+    "Description": "Probable AD (NINCDS/ADRDA)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PROBADIF": {
+    "Description": "Probable AD (NINCDS/ADRDA), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing"
+    }
+  },
+  "POSSAD": {
+    "Description": "Possible AD (NINCDS/ADRDA)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "POSSADIF": {
+    "Description": "Possible AD (NINCDS/ADRDA), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing"
+    }
+  },
+  "DLB": {
+    "Description": "Dementia with Lewy bodies",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DLBIF": {
+    "Description": "Dementia with Lewy bodies, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "VASC": {
+    "Description": "Vascular dementia (NINDS/AIREN Probable)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "VASCIF": {
+    "Description": "Vascular dementia (NINDS/AIREN Probable), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "VASCPS": {
+    "Description": "Vascular dementia (NINDS/AIREN Possible)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "VASCPSIF": {
+    "Description": "Vascular dementia (NINDS/AIREN Possible), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "ALCDEM": {
+    "Description": "Alcohol-related dementia",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "ALCDEMIF": {
+    "Description": "Alcohol-related dementia, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DEMUN": {
+    "Description": "Dementia of undetermined etiology,",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DEMUNIF": {
+    "Description": "Dementia of undetermined etiology,, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "FTD": {
+    "Description": "Frontotemporal dementia (behavioral/executive dementia),",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "FTDIF": {
+    "Description": "Frontotemporal dementia (behavioral/executive dementia), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "PPAPH": {
+    "Description": "Primary progressive aphasia (aphasic dementia)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PPAPHIF": {
+    "Description": "Primary progressive aphasia, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "PNAPH": {
+    "Description": "Progressive nonfluent aphasia",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "SEMDEMAN": {
+    "Description": "Semantic dementia - anomia plus word comprehension",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "SEMDEMAG": {
+    "Description": "Semantic dementia - agnosic variant",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PPAOTHR": {
+    "Description": "Other (e.g. logopenic, anomic, transcortical, word deafness, syntactic comprehension, motor speech disorder",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PSP": {
+    "Description": "Progressive supranuclear palsy (PSP)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PSPIF": {
+    "Description": "Progressive supranuclear palsy (PSP), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "CORT": {
+    "Description": "Corticobasal degeneration (CBD)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "CORTIF": {
+    "Description": "Corticobasal degeneration (CBD), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "HUNT": {
+    "Description": "Huntington's disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HUNTIF": {
+    "Description": "Huntington's disease, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "PRION": {
+    "Description": "Prion disease (CJD, other)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PRIONIF": {
+    "Description": "Prion disease (CJD, other), primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "MEDS": {
+    "Description": "Cognitive impairment due to medications",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "MEDSIF": {
+    "Description": "Cognitive impairment due to medications, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DYSILL": {
+    "Description": "Cognitive impairment due to systemic disease/medical illness (as indicated on Form D2)",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DYSILLIF": {
+    "Description": "Cognitive impairment due to systemic disease/medical illness, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DEP": {
+    "Description": "Active depression",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DEPIF": {
+    "Description": "Active depression, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "OTHPSY": {
+    "Description": "Other psychiatric disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "OTHPSYIF": {
+    "Description": "Other psychiatric disease, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "DOWNS": {
+    "Description": "Down syndrome",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "DOWNSIF": {
+    "Description": "Down syndrome, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "PARK": {
+    "Description": "Parkinson's disease",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "PARKIF": {
+    "Description": "Parkinson's disease, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "STROKE": {
+    "Description": "Stroke",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "STROKIF": {
+    "Description": "Stroke, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "HYCEPH": {
+    "Description": "Normal-pressure hydrocephalus",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "HYCEPHIF": {
+    "Description": "Normal-pressure hydrocephalus, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "BRNINJ": {
+    "Description": "Traumatic brain injury",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "BRNINJIF": {
+    "Description": "Traumatic brain injury, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "NEOP": {
+    "Description": "CNS neoplasm",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "NEOPIF": {
+    "Description": "CNS neoplasm, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTH": {
+    "Description": "Cognitive impairment NOS",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "COGOTHIF": {
+    "Description": "Cognitive impairment NOS, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTHX": {
+    "Description": "Cognitive impairment NOS - if Present, specify"
+  },
+  "COGOTH2": {
+    "Description": "Cognitive impairment NOS",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "COGOTH2F": {
+    "Description": "Cognitive impairment NOS, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTH2X": {
+    "Description": "Cognitive impairment NOS - if Present, specify"
+  },
+  "COGOTH3": {
+    "Description": "Cognitive impairment NOS",
+    "Levels": {
+      "0": "Absent",
+      "1": "Present"
+    }
+  },
+  "COGOTH3F": {
+    "Description": "Cognitive impairment NOS, primary or contributing",
+    "Levels": {
+      "1": "Primary",
+      "2": "Contributing",
+      "3": "Non-contributing"
+    }
+  },
+  "COGOTH3X": {
+    "Description": "Cognitive impairment NOS - if Present, specify"
+  }
+}

@@ -1,10 +1,14 @@
 {
+  "MeasurementToolMetadata": {
+    "Description": "ADRC Uniform Data Set v2 - C1: MMSE and Neuropsychological Battery",
+    "TermURL": "https://naccdata.org/data-collection/forms-documentation/uds-2"
+  },
   "delay": {
     "Description": "Time to first visit",
     "Units": "days"
   },
   "age": {
-    "Description": "Age of the participant",
+    "Description": "Age of the participant at visit",
     "Units": "years"
   },
   "MMSELOC": {
