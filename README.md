@@ -1,4 +1,4 @@
-# brain-data-preproc
+# BrainDataPrep
 
 A single application to download, bidsify and preprocess public datasets
 
