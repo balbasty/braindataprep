@@ -64,6 +64,8 @@ def fs_surf2geom(meta):
 
 
 def nibabel_fs2gii(src, dst, remove=False):
+    src = str(src)
+    dst = str(dst)
     if dst.endswith('.surf.gii'):
         return nibabel_fs2gii_surf(src, dst, remove)
     if dst.endswith('.shape.gii'):

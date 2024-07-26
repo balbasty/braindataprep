@@ -1,9 +1,3 @@
-import os
-import logging
-from braindataprep.utils import nibabel_convert, write_json
-from braindataprep.freesurfer.lookup import write_lookup
-from braindataprep.freesurfer.io import nibabel_fs2gii
-
 """
 Expected input
 --------------
@@ -59,6 +53,19 @@ anat/
     sub-{03d}_hemi-{L|R}_atlas-Destrieux_dseg.label.gii         [<-{l|r}h.aparc.a2009s.annot]
 
 """  # noqa: E501
+from logging import getLogger
+from functools import partial
+from typing import Literal, Iterable
+from pathlib import Path
+
+from braindataprep.actions import Action
+from braindataprep.actions import WriteJSON
+from braindataprep.actions import BabelConvert
+from braindataprep.actions import Freesurfer2Gifti
+from braindataprep.freesurfer.lookup import write_lookup
+
+lg = getLogger(__name__)
+
 
 bidsifiable_vol_outputs = (
     'mri/rawavg.mgz',
@@ -92,364 +99,377 @@ bidsifiable_outputs = (
 )
 
 
-def bidsify_toplevel(dst, fs_version=(), makedirs=True):
-    if makedirs:
-        os.makedirs(dst, exist_ok=True)
-
-    write_lookup(
-        os.path.join(dst, 'atlas-Aseg_dseg.tsv'),
-        'aseg'
-    )
-    write_lookup(
-        os.path.join(dst, 'atlas-AsegDesikanKillian_dseg.tsv'),
-        'aparc+aseg'
-    )
-    write_lookup(
-        os.path.join(dst, 'atlas-Desikan-Killian_dseg.tsv'),
-        'dk'
-    )
-    write_lookup(
-        os.path.join(dst, 'atlas-Destrieux_dseg.tsv'),
-        '2005' if fs_version < (4, 5) else '2009'
-    )
-
-
-def bidsify(src, dst, source_t1=None, json_only=False):
+def bidsify_toplevel(
+        dst: str | Path,
+        fs_version: tuple = ()
+) -> Iterable[Action]:
     """
-    Bidsify a single Freesurfer subject
+    Yield actions that write toplevel TSV files, which describe
+    FreeSurfer segmentations
+
+    * atlas-Aseg_dseg.tsv
+    * atlas-AsegDesikanKillian_dseg.tsv
+    * atlas-Desikan-Killian_dseg.tsv
+    * atlas-Destrieux_dseg.tsv
 
     Parameters
     ----------
-    src : str
+    dst : str | Path
+        Path to the freesurfer derivatives directory of the BIDS dataset
+    fs_version : (int, int)
+        Version of freesurfer used (MAJOR, MINOR)
+
+    Yields
+    ------
+    Action
+    """
+    dst = Path(dst)
+
+    yield Action(
+        [], dst / 'atlas-Aseg_dseg.tsv',
+        partial(write_lookup, mode='aseg'),
+        mode="t", input="path",
+    )
+
+    yield Action(
+        [], dst / 'atlas-AsegDesikanKillian_dseg.tsv',
+        partial(write_lookup, mode='aparc+aseg'),
+        mode="t", input="path",
+    )
+
+    yield Action(
+        [], dst / 'atlas-Desikan-Killian_dseg.tsv',
+        partial(write_lookup, mode='ak'),
+        mode="t", input="path",
+    )
+
+    destrieux_mode = '2005' if fs_version < (4, 5) else '2009'
+    yield Action(
+        [], dst / 'atlas-Destrieux_dseg.tsv',
+        partial(write_lookup, mode=destrieux_mode),
+        mode="t", input="path",
+    )
+
+
+def bidsify(
+        src: str | Path,
+        dst: str | Path,
+        source_t1: str | Iterable[str] | None = None,
+        json: Literal['yes', 'no', 'only'] | bool = False
+) -> Iterable[Action]:
+    """
+    Yield actions that bidsify a single Freesurfer subject
+
+    Parameters
+    ----------
+    src : str | Path
         Path to the (input) Freesurfer subject
-    dst : str
+    dst : str | Path
         Path to the (output) BIDS derivative subject
         (".../derivatives/freesurfer-{MAJOR}.{minor}/sub-{d}")
-    """
-    if source_t1:
-        if isinstance(source_t1, str):
-            source_t1 = [source_t1]
-        else:
-            source_t1 = list(source_t1)
-    else:
-        source_t1 = []
+    source_t1 : [list of] str | None
+        Path to raw T1w data that was used as input to FreeSurfer
+    json : bool or {'yes', 'no, 'only'}
 
-    sub = os.path.basename(dst)
-    os.makedirs(os.path.join(dst, 'anat'), exist_ok=True)
+    Yields
+    ------
+    Action
+    """
+    # --- init ---------------------------------------------------------
+    json_mode = (
+        'yes' if json is True else
+        'no' if json is False else
+        json
+    ).lower()
+
+    # Ensure Path
+    if isinstance(source_t1, (str, Path)):
+        source_t1 = [source_t1]
+    source_t1 = list(map(str, source_t1))
+
+    # Folders
+    src = Path(src)
+    dst = Path(dst)
+    mri = src / 'mri'
+    surf = src / 'surf'
+    label = src / 'label'
+    anat = dst / 'anat'
+
+    # Subject name
+    sub = dst.name
+    if sub.startswith('ses'):
+        sub = dst.parent.name + '_' + sub
+
+    # --- helpers ------------------------------------------------------
+    def make_base(convert: Action, pathinp: Path, pathout: Path, json: dict):
+        if not pathinp.exists():
+            return
+        if json_mode != 'only':
+            lg.info(f'write {pathout.name}')
+            yield convert(pathinp, pathout)
+        if json_mode != 'no':
+            # need to get rid of two suffixes...
+            pathjsn = pathout.with_name(pathout.stem).with_suffix('.json')
+            lg.info(f'write {pathjsn.name}')
+            yield WriteJSON(json, pathjsn)
+
+    def make_nii(pathmgz: Path, pathnii: Path, json: dict):
+        yield from make_base(BabelConvert, pathmgz, pathnii, json)
+
+    def make_gii(pathfs: Path, pathgii: Path, json: dict):
+        yield from make_base(Freesurfer2Gifti, pathfs, pathgii, json)
 
     # --- average in native space --------------------------------------
     # this is specific to OASIS (I think)
-    resflag = ''
-    if os.path.exists(os.path.join(src, 'mri', 'rawavg.mgz')):
-        basename = f'{sub}_desc-orig_T1w'
-        logging.info(f'write {basename}.nii.gz')
-        if not json_only:
-            nibabel_convert(
-                os.path.join(src, 'mri', 'rawavg.mgz'),
-                os.path.join(dst, 'anat', f'{basename}.nii.gz'),
-            )
-        write_json({
-            "Description": "A T1w scan, averaged across repeats",
-            "SkullStripped": False,
-            "Resolution": "Native resolution",
-            "Sources": source_t1,
-        }, os.path.join(dst, 'anat', f'{basename}.json'))
-        resflag = '_res-1mm'
+    res = ''
+    if (mri / 'rawavg.mgz').exists():
+        res = '_res-1mm'
+
+    yield from make_nii(
+        mri / 'rawavg.mgz',
+        anat / f'{sub}_desc-orig_T1w.nii.gz',
+        {
+            "Description":
+                "A T1w scan, averaged across repeats",
+            "SkullStripped":
+                False,
+            "Resolution":
+                "Native resolution",
+            "Sources":
+                source_t1,
+        }
+    )
 
     # === mri ==========================================================
     # --- average in native space --------------------------------------
-    if os.path.exists(os.path.join(src, 'mri', 'orig.mgz')):
-        basename = f'{sub}{resflag}_desc-orig_T1w'
-        logging.info(f'write {basename}.nii.gz')
-        if not json_only:
-            nibabel_convert(
-                os.path.join(src, 'mri', 'orig.mgz'),
-                os.path.join(dst, 'anat', f'{basename}.nii.gz'),
-            )
-        write_json({
-            "Description": "A T1w scan, resampled to 1mm isotropic",
-            "SkullStripped": False,
-            "Resolution": "1mm isotropic",
+    yield from make_nii(
+        mri / 'orig.mgz',
+        anat / f'{sub}{res}_desc-orig_T1w.nii.gz',
+        {
+            "Description":
+                "A T1w scan, resampled to 1mm isotropic",
+            "SkullStripped":
+                False,
+            "Resolution":
+                "1mm isotropic",
             "Sources": (
                 [f'bids::{sub}/anat/{sub}_desc-orig_T1w.nii.gz']
-                if resflag else source_t1
+                if res else source_t1
             ),
-        }, os.path.join(dst, 'anat', f'{basename}.json'))
+        }
+    )
     # --- normalized image ---------------------------------------------
-    if os.path.exists(os.path.join(src, 'mri', 'norm.mgz')):
-        basename = f'{sub}{resflag}_desc-norm_T1w'
-        logging.info(f'write {basename}.nii.gz')
-        if not json_only:
-            nibabel_convert(
-                os.path.join(src, 'mri', 'norm.mgz'),
-                os.path.join(dst, 'anat', f'{basename}.nii.gz'),
-            )
-        write_json({
-            "Description": ("A T1w scan, skull-stripped and "
-                            "intensity-normalized"),
-            "SkullStripped": True,
-            "Resolution": "1mm isotropic",
+    yield from make_nii(
+        mri / 'norm.mgz',
+        anat / f'{sub}{res}_desc-norm_T1w.nii.gz',
+        {
+            "Description":
+                "A T1w scan, skull-stripped and intensity-normalized",
+            "SkullStripped":
+                True,
+            "Resolution":
+                "1mm isotropic",
             "Sources": [
                 f'bids::{sub}/anat/{sub}_desc-orig_T1w.nii.gz'
             ]
-        }, os.path.join(dst, 'anat', f'{basename}.json'))
+        }
+    )
     # === label ========================================================
     # --- aseg ---------------------------------------------------------
-    if os.path.exists(os.path.join(src, 'mri', 'aseg.mgz')):
-        basename = f'{sub}_atlas-Aseg_dseg'
-        logging.info(f'write {basename}.nii.gz')
-        if not json_only:
-            nibabel_convert(
-                os.path.join(src, 'mri', 'aseg.mgz'),
-                os.path.join(dst, 'anat', f'{basename}.nii.gz'),
-            )
-        write_json({
-            "Description": ("A segmentation of the T1w scan into "
-                            "cortex, white matter, and subcortical "
-                            "structures"),
+    yield from make_nii(
+        mri / 'aseg.mgz',
+        anat / f'{sub}_atlas-Aseg_dseg.nii.gz',
+        {
+            "Description":
+                "A segmentation of the T1w scan into cortex, white "
+                "matter, and subcortical structures",
             "Sources": [
-                f'bids::{sub}/anat/{sub}{resflag}_desc-norm_T1w.nii.gz'
+                f'bids::{sub}/anat/{sub}{res}_desc-norm_T1w.nii.gz'
             ]
-        }, os.path.join(dst, 'anat', f'{basename}.json'))
+        }
+    )
     # --- aparc+aseg ---------------------------------------------------
-    if os.path.exists(os.path.join(src, 'mri', 'aparc+aseg.mgz')):
-        basename = f'{sub}_atlas-AsegDesikanKilliany_dseg'
-        logging.info(f'write {basename}.nii.gz')
-        if not json_only:
-            nibabel_convert(
-                os.path.join(src, 'mri', 'aparc+aseg.mgz'),
-                os.path.join(dst, 'anat', f'{basename}.nii.gz'),
-            )
-        write_json({
-            "Description": ("A segmentation of the T1w scan into "
-                            "cortical parcels, white matter, and "
-                            "subcortical structures"),
+    yield from make_nii(
+        mri / 'aparc+aseg.mgz',
+        anat / f'{sub}_atlas-AsegDesikanKilliany_dseg.nii.gz',
+        {
+            "Description":
+                "A segmentation of the T1w scan into cortical parcels, "
+                "white matter, and subcortical structures",
             "Sources": [
                 f'bids::{sub}/anat/{sub}_atlas-Aseg_dseg.nii.gz',
                 f'bids::{sub}/anat/{sub}_hemi-L_atlas-DesikanKilliany_dseg.label.gii',  # noqa: E501
                 f'bids::{sub}/anat/{sub}_hemi-R_atlas-DesikanKilliany_dseg.label.gii',  # noqa: E501
             ]
-        }, os.path.join(dst, 'anat', f'{basename}.json'))
+        },
+    )
     for hemi in ('L', 'R'):
         # === surf =====================================================
         # --- wm -------------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.white')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_wm'
-            logging.info(f'write {basename}.surf.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.surf.gii'),
-                )
-            write_json({
-                "Description": "White matter surface",
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.white',
+            anat / f'{sub}_hemi-{hemi}_wm.surf.gii',
+            {
+                "Description":
+                    "White matter surface",
                 "Sources": [
-                    f'bids::{sub}/anat/{sub}{resflag}_desc-norm_T1w.nii.gz',
+                    f'bids::{sub}/anat/{sub}{res}_desc-norm_T1w.nii.gz',
                     f'bids::{sub}/anat/{sub}_atlas-Aseg_dseg.nii.gz',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- pial -----------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.pial')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_pial'
-            logging.info(f'write {basename}.surf.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.surf.gii'),
-                )
-            write_json({
-                "Description": "Pial surface",
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.pial',
+            anat / f'{sub}_hemi-{hemi}_pial.surf.gii',
+            {
+                "Description":
+                    "Pial surface",
                 "Sources": [
-                    f'bids::{sub}/anat/{sub}{resflag}_desc-norm_T1w.nii.gz',
+                    f'bids::{sub}/anat/{sub}{res}_desc-norm_T1w.nii.gz',
                     f'bids::{sub}/anat/{sub}_atlas-Aseg_dseg.nii.gz',
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- smoothwm -------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.smoothwm')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_smoothwm'
-            logging.info(f'write {basename}.surf.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.surf.gii'),
-                )
-            write_json({
-                "Description": "Smoothed white matter surface",
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.smoothwm',
+            anat / f'{sub}_hemi-{hemi}_smoothwm.surf.gii',
+            {
+                "Description":
+                    "Smoothed white matter surface",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- inflated -------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.inflated')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_inflated'
-            logging.info(f'write {basename}.surf.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.surf.gii'),
-                )
-            write_json({
-                "Description": "Inflated white matter surface",
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.inflated',
+            anat / f'{sub}_hemi-{hemi}_inflated.surf.gii',
+            {
+                "Description":
+                    "Inflated white matter surface",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- sphere ---------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.sphere')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_sphere'
-            logging.info(f'write {basename}.surf.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.surf.gii'),
-                )
-            write_json({
-                "Description": "White matter surface mapped to a sphere",
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.sphere',
+            anat / f'{sub}_hemi-{hemi}_sphere.surf.gii',
+            {
+                "Description":
+                    "White matter surface mapped to a sphere",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # === surf : scalars ===========================================
         # --- curv -----------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.curv')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_curv'
-            logging.info(f'write {basename}.shape.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.shape.gii'),
-                )
-            write_json({
-                "Description": ("Smoothed mean curvature of the white "
-                                "matter surface (Fischl et al., 1999)"),
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.curv',
+            anat / f'{sub}_hemi-{hemi}_curv.shape.gii',
+            {
+                "Description":
+                    "Smoothed mean curvature of the white matter "
+                    "surface (Fischl et al., 1999)",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- sulc -----------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.sulc')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_sulc'
-            logging.info(f'write {basename}.shape.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.shape.gii'),
-                )
-            write_json({
-                "Description": ("Smoothed average convexity of the white "
-                                "matter surface (Fischl et al., 1999)"),
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.sulc',
+            anat / f'{sub}_hemi-{hemi}_sulc.shape.gii',
+            {
+                "Description":
+                    "Smoothed average convexity of the white matter "
+                    "surface (Fischl et al., 1999)",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- thickness ------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.thickness')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_thickness'
-            logging.info(f'write {basename}.shape.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.shape.gii'),
-                )
-            write_json({
-                "Description": ("Cortical thickness (distance from "
-                                "each white matter vertex to its nearest "
-                                "point on the pial surface)"),
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.thickness',
+            anat / f'{sub}_hemi-{hemi}_thickness.shape.gii',
+            {
+                "Description":
+                    "Cortical thickness (distance from each white matter "
+                    "vertex to its nearest point on the pial surface)",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_pial.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- wm.area --------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.area')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_desc-wm_area'
-            logging.info(f'write {basename}.shape.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.shape.gii'),
-                )
-            write_json({
-                "Description": ("Discretized surface area across regions"),
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.area',
+            anat / f'{sub}_hemi-{hemi}_desc-wm_area.shape.gii',
+            {
+                "Description":
+                    "Discretized white matter surface area across regions",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_wm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- pial.area ------------------------------------------------
-        inpname = os.path.join(src, 'surf', f'{hemi.lower()}h.area.pial')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_desc-pial_area'
-            logging.info(f'write {basename}.shape.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.shape.gii'),
-                )
-            write_json({
-                "Description": ("Discretized surface area across regions"),
+        yield from make_gii(
+            surf / f'{hemi.lower()}h.area.pial',
+            anat / f'{sub}_hemi-{hemi}_desc-pial_area.shape.gii',
+            {
+                "Description":
+                    "Discretized pial surface area across regions",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_pial.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # === surf : labels ============================================
         # --- DK -------------------------------------------------------
-        inpname = os.path.join(src, 'label', f'{hemi.lower()}h.aparc.annot')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_atlas-DesikanKilliany_dseg'
-            logging.info(f'write {basename}.label.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.label.gii'),
-                )
-            write_json({
-                "Description": ("Cortical parcellation based on the "
-                                "Desikan-Killiany atlas"),
+        yield from make_gii(
+            label / f'{hemi.lower()}h.aparc.annot',
+            anat / f'{sub}_hemi-{hemi}_atlas-DesikanKilliany_dseg.label.gii',
+            {
+                "Description":
+                    "Cortical parcellation based on the Desikan-Killiany "
+                    "atlas",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_smoothwm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- Destrieux2005 --------------------------------------------
-        inpname = os.path.join(src, 'label', f'{hemi.lower()}h.a2005s.annot')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_atlas-Destrieux_dseg'
-            logging.info(f'write {basename}.label.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.label.gii'),
-                )
-            write_json({
-                "Description": ("Cortical parcellation based on the "
-                                "Destrieux (2005) atlas"),
+        yield from make_gii(
+            label / f'{hemi.lower()}h.a2005s.annot',
+            anat / f'{sub}_hemi-{hemi}_atlas-Destrieux_dseg.label.gii',
+            {
+                "Description":
+                    "Cortical parcellation based on the Destrieux (2005) "
+                    "atlas",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_smoothwm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )
         # --- Destrieux2009 --------------------------------------------
-        inpname = os.path.join(src, 'label', f'{hemi.lower()}h.a2009s.annot')
-        if os.path.exists(inpname):
-            basename = f'{sub}_hemi-{hemi}_atlas-Destrieux_dseg'
-            logging.info(f'write {basename}.label.gii')
-            if not json_only:
-                nibabel_fs2gii(
-                    inpname,
-                    os.path.join(dst, 'anat', f'{basename}.label.gii'),
-                )
-            write_json({
-                "Description": ("Cortical parcellation based on the "
-                                "Destrieux (2009) atlas"),
+        yield from make_gii(
+            label / f'{hemi.lower()}h.a2009s.annot',
+            anat / f'{sub}_hemi-{hemi}_atlas-Destrieux_dseg.label.gii',
+            {
+                "Description":
+                    "Cortical parcellation based on the Destrieux (2009) "
+                    "atlas",
                 "Sources": [
                     f'bids::{sub}/anat/{sub}_hemi-{hemi}_smoothwm.surf.gii',
                 ]
-            }, os.path.join(dst, 'anat', f'{basename}.json'))
+            }
+        )

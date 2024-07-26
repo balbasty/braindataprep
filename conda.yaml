@@ -1,0 +1,15 @@
+name: braindataprep
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - requests
+  - fasteners
+  - cyclopts
+  - humanize
+  - nibabel
+  - numpy
+  - xlrd
+  - openpyxl
+  - pip:
+    - pyout

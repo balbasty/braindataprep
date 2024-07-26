@@ -1,25 +1,21 @@
 
-import os
 from pathlib import Path
-from braindataprep.utils import write_tsv
+from typing import IO, List
+from braindataprep.utils.io import write_tsv
+
+LUT: Path = Path(__file__).parent / 'lut'
+FS_LUT: Path = LUT / 'FreeSurferColorLUT.txt'
+FS_LUT_DK: Path = LUT / 'colortable_desikan_killiany.txt'
+FS_LUT_2005: Path = LUT / 'Simple_surface_labels2005.txt'
+FS_LUT_2009: Path = LUT / 'Simple_surface_labels2009.txt'
 
 
-fs_lookup_path = os.path.join(
-    os.path.dirname(__file__), 'lut', 'FreeSurferColorLUT.txt')
-fs_dk_lookup_path = os.path.join(
-    os.path.dirname(__file__), 'lut', 'colortable_desikan_killiany.txt')
-fs_2005_lookup_path = os.path.join(
-    os.path.dirname(__file__), 'lut', 'Simple_surface_labels2005.txt')
-fs_2009_lookup_path = os.path.join(
-    os.path.dirname(__file__), 'lut', 'Simple_surface_labels2009.txt')
-
-
-def parse_fs_lookup(f, has_hemi=True):
+def parse_fs_lookup(f: str | Path | IO, has_hemi: bool = True) -> List[List]:
     """Parse a freesurfer lookup table
 
     Parameters
     ----------
-    path : str or file
+    path : str | Path | file
         Freesurfer Lookup file.
 
         FS LUT are text files with the format "<INDEX> <NAME> <R> <G> <B> <A>"
@@ -177,13 +173,13 @@ def write_lookup(path, mode=None, makedirs=True):
         - else, it should contain a well formatted `list[list]`.
     """
     if mode == '2005':
-        lookup = parse_fs_lookup(fs_2005_lookup_path, False)
+        lookup = parse_fs_lookup(FS_LUT_2005, False)
     elif mode == '2009':
-        lookup = parse_fs_lookup(fs_2009_lookup_path, False)
+        lookup = parse_fs_lookup(FS_LUT_2009, False)
     elif mode == 'dk':
-        lookup = parse_fs_lookup(fs_dk_lookup_path, False)
+        lookup = parse_fs_lookup(FS_LUT_DK, False)
     elif isinstance(mode, str):
-        lookup = parse_fs_lookup(fs_lookup_path, True)
+        lookup = parse_fs_lookup(FS_LUT, True)
         if mode == 'aseg':
             lookup = filter_lookup(lookup, aseg_labels)
         elif mode == 'aparc+aseg':

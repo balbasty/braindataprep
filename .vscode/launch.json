@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Python Debugger: ixi.bidsify",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "braindataprep.datasets.IXI.bidsify_app",
+            "args": ["--keys", "meta", "--keys", "dwi", "--subs", "002", "--if-exists", "refresh"],
+        },
+        {
+            "name": "Python Debugger: download.test",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "braindataprep.download.test",
+        },
+        {
+            "name": "Python Debugger: Python File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}"
+        }
+    ]
+}
